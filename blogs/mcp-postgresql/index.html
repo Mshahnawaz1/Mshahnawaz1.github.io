@@ -29,14 +29,15 @@
 <body class="min-h-screen">
     <!-- Center Content Sheet Bounded by Vertical Borders -->
     <main class="sheet-container">
-        <!-- Navigation Header -->
+        <!-- Navigation Header (sticky) -->
+        <div class="nav-sticky-wrap">
         <nav class="nav-bar" aria-label="Main Navigation">
             <a href="../../index.html" class="nav-logo" id="logo-link">M. Shahnawaz</a>
             <div class="nav-links">
                 <a href="../../index.html#about" class="nav-link" id="nav-about-link">About</a>
                 <a href="../../index.html#experience" class="nav-link" id="nav-experience-link">Experience</a>
                 <a href="../../index.html#projects" class="nav-link" id="nav-projects-link">Projects</a>
-                <a href="../../blogs/" class="nav-link nav-link-active" id="nav-blogs-link" style="color: var(--accent); font-weight: 700;">Blogs</a>
+                <a href="../../blogs/" class="nav-link nav-link-active" id="nav-blogs-link">Blogs</a>
                 <a href="https://github.com/Mshahnawaz1" target="_blank" rel="noopener noreferrer" class="nav-link" id="nav-github-link">
                     <span>GitHub</span>
                     <svg class="external-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
@@ -49,9 +50,7 @@
                 </button>
             </div>
         </nav>
-
-        <!-- Divider Line -->
-        <div class="sheet-divider" aria-hidden="true"></div>
+        </div>
 
         <!-- Back to Blogs -->
         <div class="back-btn-container">
