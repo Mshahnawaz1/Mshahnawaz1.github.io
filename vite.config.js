@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import { resolve } from 'path';
 
 export default defineConfig({
-  base: '/Veldora_portfolio/',
+  base: '/',
   publicDir: 'static',
   build: {
     rollupOptions: {
