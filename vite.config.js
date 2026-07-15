@@ -2,6 +2,8 @@ import { defineConfig } from 'vite';
 import { resolve } from 'path';
 
 export default defineConfig({
+  base: '/Veldora_portfolio/',
+  publicDir: 'static',
   build: {
     rollupOptions: {
       input: {
@@ -12,3 +14,4 @@ export default defineConfig({
     },
   },
 });
+
