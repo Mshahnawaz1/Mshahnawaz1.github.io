@@ -76,21 +76,21 @@ const MCP_DATA = {
     },
     get_experience: [
         {
-            role: "Open Source Contributor",
-            organization: "MetaBrainz Foundation (ListenBrainz)",
-            duration: "Feb 2025 — May 2025",
-            highlights: [
-                "Implemented persistent volume storage via LocalStorage across the React codebase, retaining preferences for 1M+ active users.",
-                "Contributed 4+ pull requests merged by core maintainers, gaining production-grade React/TS experience."
-            ]
-        },
-        {
             role: "Software Developer (Contract)",
             organization: "Raza Studioz",
             duration: "Dec 2025 — Feb 2026",
             highlights: [
-                "Built full-stack React web app with serverless REST APIs and Supabase serving 100+ active users.",
-                "Engineered Resend email dispatch system with sub-2s latency for admin alerts."
+                "Built a full-stack web app with React, serverless REST API, and Supabase (PostgreSQL) serving 100+ active users.",
+                "Engineered an email dispatch system with Resend for real-time admin notifications (sub-2s delivery), while collaborating with the founder to clarify evolving requirements and prioritize features under shifting deadlines."
+            ]
+        },
+        {
+            role: "Open Source Contributor",
+            organization: "MetaBrainz Foundation (ListenBrainz)",
+            duration: "Feb 2025 — May 2025",
+            highlights: [
+                "Implemented persistent volume storage via LocalStorage across the React codebase, enabling user preference retention across sessions for 1M+ active users on the platform.",
+                "Contributed 4+ pull requests reviewed and merged by core maintainers, iterating on implementation across multiple review cycles while adapting to an unfamiliar large-scale codebase."
             ]
         }
     ],

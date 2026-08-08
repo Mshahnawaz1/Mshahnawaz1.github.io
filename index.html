@@ -100,33 +100,33 @@
         <section class="sheet-section" id="experience" aria-labelledby="experience-heading">
             <h2 class="section-eyebrow" id="experience-heading">Experience</h2>
             <div class="experience-list">
-                <!-- MetaBrainz -->
-                <article class="experience-row">
-                    <div class="experience-meta">
-                        <h3 class="exp-role">Open Source Contributor</h3>
-                        <div class="exp-details">
-                            <span class="exp-company">MetaBrainz Foundation (ListenBrainz)</span>
-                            <span class="exp-date">02.2025 — 05.2025</span>
-                        </div>
-                    </div>
-                    <ul class="exp-bullets">
-                        <li>Implemented persistent volume storage using local storage across the React codebase, retaining user choices and filters for <strong>1M+ active monthly users</strong>.</li>
-                        <li>Contributed 4+ pull requests reviewed and merged by core maintainers, adhering to production review protocols.</li>
-                    </ul>
-                </article>
-
                 <!-- Raza Studioz -->
                 <article class="experience-row">
                     <div class="experience-meta">
                         <h3 class="exp-role">Software Developer <small>(Contract)</small></h3>
                         <div class="exp-details">
                             <span class="exp-company">Raza Studioz</span>
-                            <span class="exp-date">12.2025 — 02.2026</span>
+                            <span class="exp-date">Dec 2025 — Feb 2026</span>
                         </div>
                     </div>
                     <ul class="exp-bullets">
-                        <li>Built a responsive full-stack web application powered by serverless REST APIs and a Supabase (PostgreSQL) database.</li>
-                        <li>Engineered a notification subsystem via Resend, scheduling alerts with a delivery latency of under 2 seconds.</li>
+                        <li>Built a full-stack web app with React, serverless REST API, and Supabase (PostgreSQL) serving <strong>100+ active users</strong>.</li>
+                        <li>Engineered an email dispatch system with Resend for real-time admin notifications (sub-2s delivery), while collaborating with the founder to clarify evolving requirements and prioritize features under shifting deadlines.</li>
+                    </ul>
+                </article>
+
+                <!-- MetaBrainz -->
+                <article class="experience-row">
+                    <div class="experience-meta">
+                        <h3 class="exp-role">Open Source Contributor</h3>
+                        <div class="exp-details">
+                            <span class="exp-company">MetaBrainz Foundation (ListenBrainz)</span>
+                            <span class="exp-date">Feb 2025 — May 2025</span>
+                        </div>
+                    </div>
+                    <ul class="exp-bullets">
+                        <li>Implemented persistent volume storage via LocalStorage across the React codebase, enabling user preference retention across sessions for <strong>1M+ active users</strong> on the platform.</li>
+                        <li>Contributed 4+ pull requests reviewed and merged by core maintainers, iterating on implementation across multiple review cycles while adapting to an unfamiliar large-scale codebase.</li>
                     </ul>
                 </article>
             </div>
@@ -147,25 +147,57 @@
             </div>
             <div class="projects-slider-wrapper">
                 <div class="projects-slider" id="projects-slider-container">
+                    <!-- ResumeXAnalyzer -->
+                    <article class="project-card">
+                        <div class="project-card-main">
+                            <div class="project-card-header">
+                                <div class="project-title-row">
+                                    <h3 class="project-title">ResumeXAnalyzer</h3>
+                                    <div class="project-card-links">
+                                        <a href="https://github.com/Mshahnawaz1/ResumeXanalyzer" target="_blank" rel="noopener noreferrer" class="project-card-link-icon" aria-label="GitHub Repository" title="GitHub Repository">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+                                        </a>
+                                        <a href="https://resume-x-analyzer.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-card-link-icon" aria-label="Live Demo" title="Live Demo">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                                        </a>
+                                    </div>
+                                </div>
+                                <span class="project-tech">FastAPI • LangChain • Railway • React</span>
+                            </div>
+                            <p class="project-description">
+                                Multi-agent AI platform analyzing 50+ resumes with sub-3000ms response time to identify gaps and improve job-fit alignment.
+                            </p>
+                        </div>
+                        <ul class="project-bullets">
+                            <li>Wrote pytest unit and integration tests covering the analysis pipeline.</li>
+                            <li>Deployed on Vercel and Railway with automated CI/CD.</li>
+                        </ul>
+                    </article>
+
                     <!-- MedAI -->
                     <article class="project-card">
                         <div class="project-card-main">
                             <div class="project-card-header">
-                                <h3 class="project-title">
-                                    <a href="https://github.com/Mshahnawaz1/MedAI" target="_blank" rel="noopener noreferrer" class="project-link-anchor">
-                                        MedAI 
-                                        <svg class="inline-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                                    </a>
-                                </h3>
-                                <span class="project-tech">LangGraph • FastAPI • PostgreSQL • MCP</span>
+                                <div class="project-title-row">
+                                    <h3 class="project-title">MedAI</h3>
+                                    <div class="project-card-links">
+                                        <a href="https://github.com/mshahnawaz1/Agentic-appointment-booking" target="_blank" rel="noopener noreferrer" class="project-card-link-icon" aria-label="GitHub Repository" title="GitHub Repository">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+                                        </a>
+                                        <a href="https://agentic-appointment-booking.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-card-link-icon" aria-label="Live Demo" title="Live Demo">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                                        </a>
+                                    </div>
+                                </div>
+                                <span class="project-tech">FastAPI • LangChain • MCP • PostgreSQL</span>
                             </div>
                             <p class="project-description">
-                                Agentic healthcare booking chatbot implementing Model Context Protocol (MCP) to dynamically invoke 8+ tools for patient schedules.
+                                Agentic healthcare chatbot implementing Model Context Protocol (MCP) with 8+ dynamically invoked tools.
                             </p>
                         </div>
                         <ul class="project-bullets">
-                            <li>Designed SQL schemas via SQLAlchemy enforcing multi-turn agent context.</li>
-                            <li>FastAPI backend slashed booking workflows by 60%.</li>
+                            <li>Reduced manual booking time by 60% with async FastAPI backend.</li>
+                            <li>PostgreSQL schemas (SQLAlchemy) with sub-3s latency.</li>
                         </ul>
                     </article>
 
@@ -173,21 +205,26 @@
                     <article class="project-card">
                         <div class="project-card-main">
                             <div class="project-card-header">
-                                <h3 class="project-title">
-                                    <a href="https://github.com/Mshahnawaz1/SmartLearn" target="_blank" rel="noopener noreferrer" class="project-link-anchor">
-                                        SmartLearn
-                                        <svg class="inline-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                                    </a>
-                                </h3>
+                                <div class="project-title-row">
+                                    <h3 class="project-title">SmartLearn</h3>
+                                    <div class="project-card-links">
+                                        <a href="https://github.com/Mshahnawaz1/Rag-agent-for-document" target="_blank" rel="noopener noreferrer" class="project-card-link-icon" aria-label="GitHub Repository" title="GitHub Repository">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+                                        </a>
+                                        <a href="https://huggingface.co/spaces/SlimeRimuru/RAG-learning" target="_blank" rel="noopener noreferrer" class="project-card-link-icon" aria-label="Live Demo" title="Live Demo">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                                        </a>
+                                    </div>
+                                </div>
                                 <span class="project-tech">FastAPI • ChromaDB • Gemini • Docker</span>
                             </div>
                             <p class="project-description">
-                                A containerized document retrieval pipeline providing low-latency semantic query search over text documents.
+                                RAG document retrieval pipeline with Gemini embeddings enhancing matching accuracy by 80%.
                             </p>
                         </div>
                         <ul class="project-bullets">
-                            <li>ChromaDB and Gemini Embeddings improved retrieval matching accuracy by 80%.</li>
-                            <li>FastAPI backend on HF Spaces, sub-500ms latency.</li>
+                            <li>Dockerized FastAPI backend deployed on HF Spaces.</li>
+                            <li>Serves agent requests with sub-500ms latency.</li>
                         </ul>
                     </article>
 
@@ -195,12 +232,17 @@
                     <article class="project-card">
                         <div class="project-card-main">
                             <div class="project-card-header">
-                                <h3 class="project-title">
-                                    <a href="https://github.com/Mshahnawaz1/Irrigo" target="_blank" rel="noopener noreferrer" class="project-link-anchor">
-                                        Irrigo Smart Irrigation
-                                        <svg class="inline-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                                    </a>
-                                </h3>
+                                <div class="project-title-row">
+                                    <h3 class="project-title">Irrigo Smart Irrigation</h3>
+                                    <div class="project-card-links">
+                                        <a href="https://github.com/Mshahnawaz1/Irrigo-smart-irrigation-system" target="_blank" rel="noopener noreferrer" class="project-card-link-icon" aria-label="GitHub Repository" title="GitHub Repository">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+                                        </a>
+                                        <a href="https://github.com/Mshahnawaz1/Irrigo-smart-irrigation-system" target="_blank" rel="noopener noreferrer" class="project-card-link-icon" aria-label="Live Demo" title="Live Demo">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                                        </a>
+                                    </div>
+                                </div>
                                 <span class="project-tech">Flask • Python • IoT • ESP8266</span>
                             </div>
                             <p class="project-description">

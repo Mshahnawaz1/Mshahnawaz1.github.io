@@ -15,7 +15,11 @@
 /* Light Theme Variables */
 html, html[data-theme="light"] {
     --bg-page: #F2F1EE;            /* Warm off-white — subtle and non-glaring */
-    --bg-surface: #F8F8F6;         /* Sheet surface slightly lighter than page */
+    --bg-surface: rgba(248, 248, 246, 0.92);         /* Sheet surface slightly lighter than page */
+    --bg-gradient: radial-gradient(circle at 50% 0%, rgba(2, 132, 199, 0.06) 0%, transparent 65%),
+                    radial-gradient(circle at 85% 35%, rgba(99, 102, 241, 0.04) 0%, transparent 50%),
+                    radial-gradient(circle at 15% 75%, rgba(2, 132, 199, 0.03) 0%, transparent 50%);
+    --bg-noise-opacity: 0.035;
     --border-color: rgba(9, 9, 11, 0.10);
     --border-color-hover: #09090b;
     --text-primary: #09090b;       /* Zinc 950 */
@@ -26,7 +30,7 @@ html, html[data-theme="light"] {
     --accent-rgb: 2, 132, 199;
     --accent-subtle: rgba(2, 132, 199, 0.07);
     
-    --card-bg: #efefec;
+    --card-bg: rgba(239, 239, 236, 0.85);
     --card-border: rgba(9, 9, 11, 0.08);
     
     --nav-bg: rgba(248, 248, 246, 0.85);
@@ -37,7 +41,11 @@ html, html[data-theme="light"] {
 /* Dark Theme Variables */
 html[data-theme="dark"] {
     --bg-page: #09090b;            /* Zinc 950 */
-    --bg-surface: #09090b;
+    --bg-surface: rgba(9, 9, 11, 0.92);
+    --bg-gradient: radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.07) 0%, transparent 65%),
+                    radial-gradient(circle at 85% 35%, rgba(139, 92, 246, 0.04) 0%, transparent 50%),
+                    radial-gradient(circle at 15% 75%, rgba(56, 189, 248, 0.03) 0%, transparent 50%);
+    --bg-noise-opacity: 0.045;
     --border-color: rgba(244, 244, 245, 0.08);
     --border-color-hover: #f4f4f5;
     --text-primary: #f4f4f5;       /* Zinc 100 */
@@ -48,7 +56,7 @@ html[data-theme="dark"] {
     --accent-rgb: 56, 189, 248;
     --accent-subtle: rgba(56, 189, 248, 0.08);
     
-    --card-bg: #121214;
+    --card-bg: rgba(18, 18, 20, 0.85);
     --card-border: rgba(255, 255, 255, 0.05);
     
     --nav-bg: rgba(9, 9, 11, 0.85);
@@ -77,11 +85,29 @@ html {
 
 body {
     background-color: var(--bg-page);
+    background-image: var(--bg-gradient);
+    background-attachment: fixed;
     color: var(--text-secondary);
     min-height: 100%;
     overflow-x: hidden;
     line-height: 1.625;
     transition: var(--transition-theme);
+    position: relative;
+}
+
+/* Subtle Fixed Grain Noise Texture Overlay */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: var(--bg-noise-opacity);
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    transition: opacity 0.2s ease;
 }
 
 /* Custom Selection */
@@ -133,6 +159,8 @@ a {
     max-width: 672px; /* 42rem / max-w-2xl matching Reference Site */
     margin: 0 auto;
     background-color: var(--bg-surface);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-left: 1px solid var(--border-color);
     border-right: 1px solid var(--border-color);
     padding-left: 24px;
@@ -499,9 +527,47 @@ html, html[data-theme="light"] {
     margin-bottom: 8px;
 }
 
+.project-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
 .project-title {
     font-size: 0.95rem;
     font-weight: 600;
+}
+
+.project-card-links {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.project-card-link-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 4px;
+    color: var(--text-muted);
+    border: 1px solid var(--card-border);
+    background-color: var(--bg-surface);
+    transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease, transform 0.15s ease;
+}
+
+.project-card-link-icon:hover {
+    color: var(--text-primary);
+    border-color: var(--accent);
+    background-color: var(--accent-subtle);
+    transform: translateY(-1px);
+}
+
+.project-card-link-icon svg {
+    width: 14px;
+    height: 14px;
 }
 
 .project-link-anchor {
