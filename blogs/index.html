@@ -11,23 +11,22 @@
     </script>
     <title>Writing &amp; Thoughts — Mohammad Shahnawaz</title>
     <meta name="description" content="Technical blog posts on building asynchronous systems, Model Context Protocol (MCP) servers, vector databases, and agentic AI architectures.">
-    
+
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Writing &amp; Thoughts — Mohammad Shahnawaz">
     <meta property="og:description" content="Technical blog posts on building asynchronous systems, MCP tools, and agentic architectures.">
     <meta property="og:image" content="../profile.png">
-    
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
-    
+
     <!-- CSS -->
     <link rel="stylesheet" href="../styles.css">
 </head>
 <body class="min-h-screen">
-    <!-- Center Content Sheet Bounded by Vertical Borders -->
     <main class="sheet-container">
         <!-- Navigation Header (sticky) -->
         <div class="nav-sticky-wrap">
@@ -54,10 +53,15 @@
 
         <!-- Blogs Section -->
         <section class="sheet-section" id="blogs" aria-labelledby="blogs-heading">
-            <h2 class="section-eyebrow" id="blogs-heading">Writing &amp; Thoughts</h2>
-            <!-- Posts rendered dynamically from blogs.json -->
-            <div class="blogs-list" id="blogs-list">
-                <div class="blog-loading" aria-live="polite">Loading posts…</div>
+            <!-- Header row -->
+            <div class="blog-index-header">
+                <h2 class="section-eyebrow" id="blogs-heading">Writing &amp; Thoughts</h2>
+                <p class="blog-index-tagline">Field notes on systems, AI agents, and the craft of building software.</p>
+            </div>
+
+            <!-- Post list rendered dynamically from posts-manifest.json -->
+            <div class="blog-list" id="blog-table" role="list" aria-label="Blog posts">
+                <div class="blog-table-loading" aria-live="polite">Loading articles…</div>
             </div>
         </section>
 
@@ -71,7 +75,7 @@
                     <a href="https://linkedin.com/in/Mshahnawaz1" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a>
                 </div>
             </div>
-            
+
             <!-- Fluid Brand Typography SVG in footer -->
             <div class="footer-brand-wrap" aria-hidden="true">
                 <svg class="footer-brand-svg" viewBox="0 0 2800 240" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -90,94 +94,69 @@
     <!-- Script -->
     <script type="module" src="../script.js"></script>
     <script type="module">
-        // Blog data is inlined here so the page works on static hosting (GitHub Pages)
-        // without needing a dev server. To add a new post, update this array AND blogs.json.
-        const BLOG_POSTS = [
-          {
-            "slug": "mcp-postgresql",
-            "title": "Building a Model Context Protocol (MCP) server for PostgreSQL databases",
-            "excerpt": "Exposing database schemas, SQL query runners, and table metrics securely to large language models using the Model Context Protocol. Learn how to write tools in Python and run them in any MCP host.",
-            "tag": "AI Agents",
-            "date": "2026-06-12",
-            "dateLabel": "June 12, 2026",
-            "readTime": "6 min read",
-            "published": true
-          },
-          {
-            "slug": "fastapi-task-queuing",
-            "title": "Asynchronous Task Queuing in FastAPI: Celery vs. BackgroundTasks",
-            "excerpt": "When should you use FastAPI's built-in BackgroundTasks versus a full-fledged distributed worker system like Celery and Redis? We compare latency, overhead, and reliability in backend services.",
-            "tag": "FastAPI",
-            "date": "2026-04-18",
-            "dateLabel": "April 18, 2026",
-            "readTime": "8 min read",
-            "published": false
-          },
-          {
-            "slug": "vector-embeddings-schema",
-            "title": "Why Vector Embeddings are Changing Database Schema Design",
-            "excerpt": "A practical guide to implementing pgvector in PostgreSQL, designing high-recall index structures, and optimizing chunk retrieval strategies for production RAG pipelines.",
-            "tag": "Databases",
-            "date": "2026-02-05",
-            "dateLabel": "February 05, 2026",
-            "readTime": "5 min read",
-            "published": false
-          }
-        ];
-
-        function loadBlogs() {
-            const list = document.getElementById('blogs-list');
-            try {
-                const posts = BLOG_POSTS;
-
-                list.innerHTML = '';
-
-                posts.forEach((post, i) => {
-                    const isLast = i === posts.length - 1;
-                    const card = document.createElement('article');
-                    card.className = 'blog-post-card';
-
-                    const href = post.published ? `./${post.slug}/` : null;
-                    const titleEl = href
-                        ? `<a href="${href}">${escapeHTML(post.title)}</a>`
-                        : `<span class="blog-coming-soon-title">${escapeHTML(post.title)}</span>`;
-
-                    const readMoreEl = post.published
-                        ? `<a href="${href}" class="blog-read-more">
-                                <span>Read full article</span>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 12px; height: 12px;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                           </a>`
-                        : `<span class="blog-coming-soon-badge">Coming soon</span>`;
-
-                    card.innerHTML = `
-                        <div class="blog-post-meta">
-                            <span class="blog-post-tag">${escapeHTML(post.tag)}</span>
-                            <time datetime="${post.date}">${escapeHTML(post.dateLabel)}</time>
-                            <span>•</span>
-                            <span>${escapeHTML(post.readTime)}</span>
-                        </div>
-                        <h3 class="blog-post-title">${titleEl}</h3>
-                        <p class="blog-post-excerpt">${escapeHTML(post.excerpt)}</p>
-                        ${readMoreEl}
-                    `;
-
-                    list.appendChild(card);
-                });
-            } catch (err) {
-                list.innerHTML = '<p style="font-size:0.8rem;color:var(--text-muted)">Could not load posts. Run a local server (e.g. <code>npm run dev</code>) to see dynamic content.</p>';
-                console.error(err);
-            }
-        }
+        /**
+         * Blog listing loader.
+         * Fetches /blogs/posts-manifest.json (generated at build time by vite-plugin-md-blogs)
+         * and renders an editorial table of posts.
+         */
 
         function escapeHTML(str) {
-            return String(str)
+            return String(str ?? '')
                 .replace(/&/g, '&amp;')
                 .replace(/</g, '&lt;')
                 .replace(/>/g, '&gt;')
                 .replace(/"/g, '&quot;');
         }
 
-        loadBlogs();
+        async function loadBlogIndex() {
+            const container = document.getElementById('blog-table');
+
+            try {
+                const res = await fetch('./posts-manifest.json');
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                const posts = await res.json();
+
+                if (posts.length === 0) {
+                    container.innerHTML = '<p class="blog-table-empty">No articles yet. Check back soon.</p>';
+                    return;
+                }
+
+                container.innerHTML = '';
+
+                posts.forEach((post) => {
+                    const row = document.createElement('a');
+                    row.className = 'blog-list-item';
+                    row.href = `./${post.slug}/`;
+                    row.setAttribute('role', 'listitem');
+                    row.setAttribute('aria-label', post.title);
+
+                    // Support both a tags array and a legacy single tag string
+                    const tagsArr = Array.isArray(post.tags)
+                        ? post.tags
+                        : (post.tag ? [post.tag] : []);
+
+                    const tagPills = tagsArr
+                        .map(t => `<span class="bli-tag-pill">${escapeHTML(t)}</span>`)
+                        .join('');
+
+                    row.innerHTML = `
+                        <span class="bli-title">${escapeHTML(post.title)}</span>
+                        <span class="bli-meta">
+                            <span class="bli-date">
+                                <time datetime="${escapeHTML(post.date)}">${escapeHTML(post.dateLabel)}</time>
+                            </span>
+                            <span class="bli-tags">${tagPills}</span>
+                        </span>
+                    `;
+                    container.appendChild(row);
+                });
+            } catch (err) {
+                console.error('[blog-index]', err);
+                container.innerHTML = '<p class="blog-table-empty">Could not load articles. Run <code>npm run build</code> first.</p>';
+            }
+        }
+
+        loadBlogIndex();
     </script>
 </body>
 </html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+    <title>{{TITLE}} — Mohammad Shahnawaz</title>
+    <meta name="description" content="{{EXCERPT}}">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="{{TITLE}} — Mohammad Shahnawaz">
+    <meta property="og:description" content="{{EXCERPT}}">
+    <meta property="og:image" content="../../profile.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="min-h-screen">
+    <main class="sheet-container">
+        <!-- Navigation Header (sticky) -->
+        <div class="nav-sticky-wrap">
+        <nav class="nav-bar" aria-label="Main Navigation">
+            <a href="../../index.html" class="nav-logo" id="logo-link">M. Shahnawaz</a>
+            <div class="nav-links">
+                <a href="../../index.html#about" class="nav-link" id="nav-about-link">About</a>
+                <a href="../../index.html#experience" class="nav-link" id="nav-experience-link">Experience</a>
+                <a href="../../index.html#projects" class="nav-link" id="nav-projects-link">Projects</a>
+                <a href="../../blogs/" class="nav-link nav-link-active" id="nav-blogs-link">Blogs</a>
+                <a href="https://github.com/Mshahnawaz1" target="_blank" rel="noopener noreferrer" class="nav-link" id="nav-github-link">
+                    <span>GitHub</span>
+                    <svg class="external-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                </a>
+                <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle light and dark theme" title="Toggle Theme">
+                    <!-- Sun Icon -->
+                    <svg class="theme-icon sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>
+                    <!-- Moon Icon -->
+                    <svg class="theme-icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
+                </button>
+            </div>
+        </nav>
+        </div>
+
+        <!-- Back to Blogs -->
+        <div class="back-btn-container">
+            <a href="../../blogs/" class="back-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 14px; height: 14px;"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                <span>Back to articles</span>
+            </a>
+        </div>
+
+        <!-- Blog Post Detail -->
+        <article class="blog-detail">
+            <header class="blog-detail-header">
+                <div class="blog-post-meta">
+                    <span class="blog-post-tag">{{TAG}}</span>
+                    <time datetime="{{DATE}}">{{DATE_LABEL}}</time>
+                    <span>•</span>
+                    <span>{{READ_TIME}}</span>
+                </div>
+                <h1 class="blog-detail-title">{{TITLE}}</h1>
+            </header>
+
+            <div class="blog-content blog-content-prose">
+                {{BODY_HTML}}
+            </div>
+        </article>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-bottom-row">
+                <span class="footer-copy">&copy; 2026 Mohammad Shahnawaz.</span>
+                <div class="footer-social-links">
+                    <a href="mailto:mshahnawaz1.dev@gmail.com" class="footer-link">Email</a>
+                    <a href="https://github.com/Mshahnawaz1" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
+                    <a href="https://linkedin.com/in/Mshahnawaz1" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a>
+                </div>
+            </div>
+
+            <!-- Fluid Brand Typography SVG in footer -->
+            <div class="footer-brand-wrap" aria-hidden="true">
+                <svg class="footer-brand-svg" viewBox="0 0 2800 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <text x="50%" y="50%" text-anchor="middle" dominant-baseline="central" stroke="currentColor" stroke-opacity="0.1" stroke-width="1.5" fill="url(#brand_text_gradient)" style="font-family: 'JetBrains Mono', monospace; font-size:160px; font-weight:800; letter-spacing: -0.04em;">M. SHAHNAWAZ</text>
+                    <defs>
+                        <linearGradient id="brand_text_gradient" x1="0" y1="0" x2="2800" y2="240" gradientUnits="userSpaceOnUse">
+                            <stop offset="0%" stop-color="currentColor" stop-opacity="0.15"></stop>
+                            <stop offset="100%" stop-color="currentColor" stop-opacity="0.95"></stop>
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Script -->
+    <script type="module" src="../../script.js"></script>
+</body>
+</html>

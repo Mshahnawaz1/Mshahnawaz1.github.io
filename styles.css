@@ -1097,3 +1097,140 @@ html, html[data-theme="light"] {
         font-size: 1.35rem;
     }
 }
+
+
+/* ==========================================================================
+   BLOG INDEX — LIST CARD LAYOUT
+   ========================================================================== */
+
+.blog-index-header {
+    margin-bottom: 32px;
+}
+
+.blog-index-tagline {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-top: 6px;
+    line-height: 1.5;
+}
+
+/* The list container */
+.blog-list {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Each blog entry is a clickable row */
+.blog-list-item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border-color);
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    /* Left accent bar — the signature hover element */
+    padding-left: 0;
+    border-left: 2px solid transparent;
+    transition:
+        border-left-color var(--transition-normal),
+        padding-left var(--transition-normal),
+        background-color var(--transition-normal);
+}
+
+.blog-list-item:first-child {
+    border-top: 1px solid var(--border-color);
+}
+
+.blog-list-item:hover {
+    border-left-color: var(--accent);
+    padding-left: 16px;
+    background-color: var(--accent-subtle);
+    margin-left: -18px;
+    padding-right: 0;
+}
+
+/* Compensate for the negative margin on hover */
+@media (min-width: 520px) {
+    .blog-list-item:hover {
+        margin-left: -24px;
+        padding-left: 22px;
+    }
+}
+
+/* The post title */
+.bli-title {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.45;
+    color: var(--text-primary);
+    transition: color var(--transition-fast);
+}
+
+.blog-list-item:hover .bli-title {
+    color: var(--accent);
+}
+
+/* Meta row: date on left, tags on right */
+.bli-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+}
+
+/* Date */
+.bli-date {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    white-space: nowrap;
+}
+
+/* Tags wrapper */
+.bli-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+/* Individual tag pill */
+.bli-tag-pill {
+    display: inline-block;
+    font-size: 0.63rem;
+    font-family: var(--font-mono);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 3px;
+    padding: 2px 7px;
+    line-height: 1.6;
+    transition: border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.blog-list-item:hover .bli-tag-pill {
+    border-color: rgba(var(--accent-rgb), 0.35);
+    color: var(--accent);
+}
+
+/* Loading / empty state */
+.blog-table-loading,
+.blog-table-empty {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    padding: 24px 0;
+}
+
+.blog-table-empty code {
+    font-family: var(--font-mono);
+    background-color: var(--accent-subtle);
+    padding: 1px 4px;
+    border-radius: 3px;
+    font-size: 0.78rem;
+    color: var(--accent);
+}
