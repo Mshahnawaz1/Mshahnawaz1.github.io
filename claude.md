@@ -16,6 +16,7 @@ Design reference: @design.md. Its "Recommended Tech Stack" (Next.js, Framer Moti
 - `src/content/blogs/*.md` — blog posts; schema in `src/content.config.ts`
 - `src/layouts/Base.astro` — `<head>`, fonts, theme init, theme toggle, shared script
 - `src/components/` — reusable pieces (blog list, etc.)
+- `src/lib/posts.ts` — shared post query (sorted) and date formatting
 - `src/styles/global.css` — all styling, tokens as CSS variables (zinc scale, dark/light via `data-theme`)
 - `src/scripts/main.js` — theme toggle, clock, scroll reveal, spy-scroll index, marquee
 - `public/` — files served as-is (`profile.png`, resume PDF)
