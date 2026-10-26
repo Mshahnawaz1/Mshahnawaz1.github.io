@@ -6,6 +6,16 @@
     --font-mono: 'Geist Mono', ui-monospace, monospace;
     --font-display: 'Doto', monospace;
 
+    /* Type scale: every font-size on the site uses one of these */
+    --text-2xs: 0.68rem;     /* tags, meta, labels */
+    --text-xs: 0.75rem;      /* small UI text, links, nav */
+    --text-sm: 0.875rem;     /* secondary body: roles, descriptions, bullets */
+    --text-base: 0.95rem;    /* primary body */
+    --text-md: 1rem;         /* item titles: companies, projects, posts */
+    --text-lg: 1.15rem;      /* section headings, quote */
+    --text-xl: 1.6rem;       /* page titles */
+    --text-display: 1.75rem; /* banner clock */
+
     --ease: cubic-bezier(0.16, 1, 0.3, 1);
     --column: 600px;   /* fixed so the width is predictable at any zoom */
     --gutter: 20px;
@@ -131,7 +141,7 @@ section { padding-top: 44px; }
     display: inline-block;
     margin-bottom: 12px;
     padding: 6px 13px;
-    font-size: 1.15rem;
+    font-size: var(--text-lg);
     letter-spacing: -0.02em;
     background:
         linear-gradient(var(--c) 0 0) top left / var(--l) var(--t),
@@ -179,7 +189,7 @@ section { padding-top: 44px; }
     bottom: 10px;
     z-index: 1;
     font-family: var(--font-display);
-    font-size: 1.75rem;
+    font-size: var(--text-display);
     font-weight: 800;
     line-height: 1;
     letter-spacing: 0.06em;
@@ -199,13 +209,13 @@ section { padding-top: 44px; }
     display: none;
     flex-direction: column;
     gap: 12px;
-    font-size: 0.8rem;
+    font-size: var(--text-xs);
     letter-spacing: 0.04em;
 }
 .index-label {
     margin-bottom: 8px;
     font-family: var(--font-mono);
-    font-size: 0.65rem;
+    font-size: var(--text-2xs);
     font-weight: 500;
     letter-spacing: 0.25em;
     text-transform: uppercase;
@@ -269,19 +279,19 @@ html[data-theme="light"] .sun-icon { display: none; }
     border-radius: 6px;
 }
 
-.identity h1 { font-size: 1.6rem; letter-spacing: -0.02em; }
+.identity h1 { font-size: var(--text-xl); letter-spacing: -0.02em; }
 .handle,
 .location {
     font-family: var(--font-mono);
-    font-size: 0.85rem;
+    font-size: var(--text-sm);
     color: var(--fg-2);
 }
 .handle { margin-top: 2px; }
 .location { display: flex; align-items: center; gap: 8px; margin-top: 4px; color: var(--fg); }
 .location svg { width: 16px; height: 16px; color: var(--fg-2); }
 
-.bio { margin-top: 18px; font-size: 0.95rem; line-height: 1.65; color: var(--fg); max-width: 460px; }
-.bio p + p { color: var(--fg-2); font-size: 0.9rem; margin-top: 4px; }
+.bio { margin-top: 18px; font-size: var(--text-base); line-height: 1.65; color: var(--fg); max-width: 460px; }
+.bio p + p { color: var(--fg-2); font-size: var(--text-sm); margin-top: 4px; }
 
 .socials { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
 .icon-btn {
@@ -318,22 +328,22 @@ html[data-theme="light"] .sun-icon { display: none; }
     border-radius: 9px;
     background: var(--tile);
     font-family: var(--font-mono);
-    font-size: 0.68rem;
+    font-size: var(--text-2xs);
     font-weight: 600;
     letter-spacing: 0.02em;
     color: var(--fg);
 }
 
-.entry h3 { font-size: 1.1rem; letter-spacing: -0.01em; }
-.role { margin-top: 2px; font-size: 0.95rem; color: var(--fg-2); }
-.date { margin-top: 10px; font-size: 0.9rem; font-weight: 500; color: var(--fg); }
+.entry h3 { font-size: var(--text-md); letter-spacing: -0.01em; }
+.role { margin-top: 2px; font-size: var(--text-sm); color: var(--fg-2); }
+.date { margin-top: 10px; font-size: var(--text-sm); font-weight: 500; color: var(--fg); }
 
 .entry summary {
     display: inline-flex;
     align-items: center;
     gap: 8px;
     margin-top: 12px;
-    font-size: 0.95rem;
+    font-size: var(--text-sm);
     font-weight: 500;
     color: var(--fg);
     cursor: pointer;
@@ -347,7 +357,7 @@ details[open] > :not(summary) { animation: unfold 0.4s var(--ease); }
 
 .entry ul {
     margin: 10px 0 0 16px;
-    font-size: 0.86rem;
+    font-size: var(--text-sm);
     list-style: square;
 }
 .entry li + li { margin-top: 6px; }
@@ -361,7 +371,7 @@ details[open] > :not(summary) { animation: unfold 0.4s var(--ease); }
     border-radius: 5px;
     background: var(--tile);
     font-family: var(--font-mono);
-    font-size: 0.66rem;
+    font-size: var(--text-2xs);
     color: var(--fg-2);
 }
 
@@ -399,7 +409,7 @@ details[open] > :not(summary) { animation: unfold 0.4s var(--ease); }
     background-image: radial-gradient(var(--line-strong) 1px, transparent 1px);
     background-size: 10px 10px;
     font-family: var(--font-display);
-    font-size: 1.35rem;
+    font-size: var(--text-lg);
     font-weight: 800;
     line-height: 1.15;
     text-align: center;
@@ -413,7 +423,7 @@ details[open] > :not(summary) { animation: unfold 0.4s var(--ease); }
     gap: 10px;
     margin-top: 14px;
 }
-.card-head h3 { font-size: 1.1rem; letter-spacing: -0.01em; }
+.card-head h3 { font-size: var(--text-md); letter-spacing: -0.01em; }
 
 .status-pill {
     flex-shrink: 0;
@@ -424,7 +434,7 @@ details[open] > :not(summary) { animation: unfold 0.4s var(--ease); }
     border: 1px solid var(--line-strong);
     border-radius: 999px;
     background: var(--tile);
-    font-size: 0.75rem;
+    font-size: var(--text-xs);
     color: var(--fg);
 }
 .status-pill::before {
@@ -437,7 +447,7 @@ details[open] > :not(summary) { animation: unfold 0.4s var(--ease); }
 .status-pill[data-status="Live"]::before { background: #22c55e; }
 .status-pill[data-status="Building"]::before { background: #f59e0b; }
 
-.card-desc { margin-top: 6px; font-size: 0.88rem; line-height: 1.6; color: var(--fg-2); }
+.card-desc { margin-top: 6px; font-size: var(--text-sm); line-height: 1.6; color: var(--fg-2); }
 
 .card-foot {
     display: flex;
@@ -449,7 +459,7 @@ details[open] > :not(summary) { animation: unfold 0.4s var(--ease); }
     padding-top: 12px;
 }
 .card-foot .tags { margin-top: 0; }
-.card-links { display: flex; gap: 12px; margin-left: auto; font-size: 0.82rem; white-space: nowrap; }
+.card-links { display: flex; gap: 12px; margin-left: auto; font-size: var(--text-xs); white-space: nowrap; }
 .card-links a { color: var(--fg-3); }
 .card-links a:hover { color: var(--fg); }
 
@@ -463,7 +473,7 @@ details[open] > :not(summary) { animation: unfold 0.4s var(--ease); }
     border-radius: 6px;
     background: var(--tile);
     font-family: var(--font-mono);
-    font-size: 0.74rem;
+    font-size: var(--text-xs);
     color: var(--fg);
 }
 
@@ -486,7 +496,7 @@ details[open] > :not(summary) { animation: unfold 0.4s var(--ease); }
     border: 1px solid var(--line-strong);
     border-radius: 8px;
     background: var(--tile);
-    font-size: 0.8rem;
+    font-size: var(--text-sm);
     line-height: 1.5;
 }
 .highlight strong { color: var(--fg); font-weight: 600; }
@@ -505,11 +515,11 @@ details[open] > :not(summary) { animation: unfold 0.4s var(--ease); }
     transition: background-color 0.2s;
 }
 .blog-row:hover { background-color: var(--hover); }
-.blog-title { color: var(--fg); font-size: 0.95rem; font-weight: 600; }
+.blog-title { color: var(--fg); font-size: var(--text-md); font-weight: 600; }
 .blog-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
-.meta { font-family: var(--font-mono); font-size: 0.7rem; color: var(--fg-3); }
-.empty { padding: 0 14px; font-size: 0.88rem; color: var(--fg-3); }
-.more { display: inline-block; margin: 8px 14px 0; font-family: var(--font-mono); font-size: 0.76rem; color: var(--fg-3); }
+.meta { font-family: var(--font-mono); font-size: var(--text-2xs); color: var(--fg-3); }
+.empty { padding: 0 14px; font-size: var(--text-sm); color: var(--fg-3); }
+.more { display: inline-block; margin: 8px 14px 0; font-family: var(--font-mono); font-size: var(--text-xs); color: var(--fg-3); }
 
 /* ==========================================================================
    FOOTER
@@ -519,13 +529,13 @@ footer { margin-top: 64px; padding: 40px 0 36px; text-align: center; }
     max-width: 440px;
     margin: 0 auto;
     color: var(--fg);
-    font-size: 1.1rem;
+    font-size: var(--text-lg);
     font-weight: 700;
     line-height: 1.4;
     letter-spacing: -0.02em;
     text-wrap: balance;
 }
-footer small { display: block; margin-top: 16px; font-family: var(--font-mono); font-size: 0.68rem; color: var(--fg-3); }
+footer small { display: block; margin-top: 16px; font-family: var(--font-mono); font-size: var(--text-2xs); color: var(--fg-3); }
 
 /* ==========================================================================
    BLOG PAGES
@@ -536,17 +546,17 @@ footer small { display: block; margin-top: 16px; font-family: var(--font-mono); 
     align-items: center;
     padding-top: 20px;
 }
-.back { font-family: var(--font-mono); font-size: 0.78rem; color: var(--fg-3); }
-.page h1 { margin-top: 24px; font-size: 1.6rem; letter-spacing: -0.02em; }
-.page .lead { margin: 6px 0 20px; font-size: 0.92rem; }
+.back { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--fg-3); }
+.page h1 { margin-top: 24px; font-size: var(--text-xl); letter-spacing: -0.02em; }
+.page .lead { margin: 6px 0 20px; font-size: var(--text-base); }
 .page .blog-row { margin: 0 calc(var(--gutter) * -1 + 8px); }
 .post-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 10px 0 24px; }
 .page footer { margin-top: 48px; }
 
-.prose { font-size: 0.93rem; line-height: 1.75; color: var(--fg-2); }
+.prose { font-size: var(--text-base); line-height: 1.75; color: var(--fg-2); }
 .prose > * + * { margin-top: 14px; }
-.prose h2 { margin-top: 30px; font-size: 1.2rem; }
-.prose h3 { margin-top: 24px; font-size: 1.02rem; }
+.prose h2 { margin-top: 30px; font-size: var(--text-lg); }
+.prose h3 { margin-top: 24px; font-size: var(--text-md); }
 .prose strong { color: var(--fg); }
 .prose ul, .prose ol { padding-left: 20px; }
 .prose li + li { margin-top: 6px; }
@@ -565,7 +575,7 @@ footer small { display: block; margin-top: 16px; font-family: var(--font-mono); 
     border-radius: 8px;
     background: var(--tile);
     overflow-x: auto;
-    font-size: 0.8rem;
+    font-size: var(--text-xs);
 }
 .prose pre code { padding: 0; background: none; }
 
@@ -581,12 +591,12 @@ footer small { display: block; margin-top: 16px; font-family: var(--font-mono); 
 }
 
 @media (max-width: 640px) {
-    :root { --gutter: 16px; }
+    :root { --gutter: 16px; --text-xl: 1.35rem; --text-display: 1.4rem; }
     .banner { height: 130px; }
-    .banner-clock { font-size: 1.4rem; right: 10px; bottom: 8px; }
+    .banner-clock { right: 10px; bottom: 8px; }
     .profile { gap: 14px; }
     .avatar { width: 72px; height: 72px; }
-    .identity h1 { font-size: 1.35rem; padding-right: 32px; }
+    .identity h1 { padding-right: 32px; }
     .entry { gap: 14px; padding: 18px 4px; }
     .cards { grid-template-columns: 1fr; }
     .skills, .blog-row { padding-left: 4px; padding-right: 4px; }
