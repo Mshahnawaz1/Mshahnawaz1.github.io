@@ -1,7 +1,7 @@
 ---
 title: "Testing mcpp"
 date: "2026-06-12"
-tag: "AI Agents, chomu"
+tags: ["AI Agents", "chomu"]
 excerpt: "Exposing database schemas, SQL query runners, and table metrics securely to large language models using the Model Context Protocol."
 ---
 # This is main

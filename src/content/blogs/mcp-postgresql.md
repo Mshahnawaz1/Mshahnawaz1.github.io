@@ -1,7 +1,7 @@
 ---
-title: "Test "
+title: "Building a Model Context Protocol (MCP) server for PostgreSQL databases"
 date: "2026-06-12"
-tag: "AI TESTs"
+tags: ["AI Agents"]
 excerpt: "Exposing database schemas, SQL query runners, and table metrics securely to large language models using the Model Context Protocol."
 ---
 
