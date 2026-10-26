@@ -14,6 +14,7 @@ Design reference: @design.md. Its "Recommended Tech Stack" (Next.js, Framer Moti
 - `src/pages/blogs/index.astro`, `src/pages/blogs/[slug].astro` — blog list and posts
 - `src/pages/rss.xml.js` — RSS feed
 - `src/content/blogs/*.md` — blog posts; schema in `src/content.config.ts`
+- `src/content/projects/*.md` — project cards on the home page (same schema file)
 - `src/layouts/Base.astro` — `<head>`, fonts, theme init, theme toggle, shared script
 - `src/components/` — reusable pieces (blog list, etc.)
 - `src/lib/posts.ts` — shared post query (sorted) and date formatting
@@ -30,6 +31,19 @@ tags: ["AI Agents"]
 excerpt: "..."        # optional
 ```
 Slug comes from the filename. Reading time is computed at build time.
+
+## Adding a project
+Drop `src/content/projects/<slug>.md` with frontmatter (no body needed):
+```
+title: "..."
+description: "..."
+status: "Live"          # optional: Live | Building | Not Started
+tags: ["FastAPI"]
+live: "https://..."     # optional
+source: "https://..."   # optional
+image: "/projects/x.png" # optional, file in public/; a placeholder shows without it
+order: 1                # lower comes first
+```
 
 ## Conventions
 - Minimal overhead: no UI framework, no client-side JS beyond `main.js`, no new dependencies without a reason.

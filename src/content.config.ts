@@ -12,4 +12,18 @@ const blogs = defineCollection({
   }),
 });
 
-export const collections = { blogs };
+const projects = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/projects' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    status: z.enum(['Live', 'Building', 'Not Started']).optional(),
+    tags: z.array(z.string()).default([]),
+    live: z.string().url().optional(),
+    source: z.string().url().optional(),
+    image: z.string().optional(),   // path under public/, e.g. /projects/medai.png
+    order: z.number().default(0),   // lower comes first
+  }),
+});
+
+export const collections = { blogs, projects };

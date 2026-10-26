@@ -7,3 +7,8 @@ export async function getPosts() {
 
 export const formatDate = (date: Date) =>
   date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', timeZone: 'UTC' });
+
+/** All projects, in their `order`. */
+export async function getProjects() {
+  return (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+}
