@@ -4,7 +4,7 @@
   "private": true,
   "description": "Mohammad Shahnawaz's Software Engineering & AI Agent Portfolio",
   "scripts": {
-    "dev": "astro",
+    "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview"
   },
