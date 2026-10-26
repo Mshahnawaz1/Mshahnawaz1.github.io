@@ -6,3 +6,4 @@ dist/
 
 *:Zone.Identifier
 .agents/.astro/
+.astro/

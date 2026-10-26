@@ -7,6 +7,12 @@ excerpt: "Exposing database schemas, SQL query runners, and table metrics secure
 
 Large language models (LLMs) are incredibly capable, but they are limited by their static training data. To perform actual workflows on your system, they require **tools**. The Model Context Protocol (MCP), created by Anthropic, has emerged as the standard system for defining how AI models connect securely to local or remote database endpoints, APIs, and file systems.
 
+---
+
+![hero](image.png)
+
+---
+
 In this post, we'll walk through building a high-performance MCP server in Python that exposes database schemas, SQL query execution capabilities, and table statistics to your agentic coding environment.
 
 ## Why Model Context Protocol?
