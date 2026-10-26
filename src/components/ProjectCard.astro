@@ -1,6 +1,5 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import { Image } from 'astro:assets';
 
 interface Props {
   project: CollectionEntry<'projects'>;
@@ -12,7 +11,7 @@ const href = live ?? source;
 
 <article class="card">
   <div class="card-media">
-    {image ? <Image src={image} alt={`${title} screenshot`} widths={[320, 640]} sizes="(max-width: 640px) 100vw, 290px" /> : <span class="card-placeholder" aria-hidden="true">{title}</span>}
+    {image ? <img src={image} alt={`${title} screenshot`} loading="lazy" /> : <span class="card-placeholder" aria-hidden="true">{title}</span>}
   </div>
   <div class="card-head">
     <h3>{title}</h3>

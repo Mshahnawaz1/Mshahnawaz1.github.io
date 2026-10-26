@@ -14,14 +14,14 @@ const blogs = defineCollection({
 
 const projects = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/projects' }),
-  schema: ({ image }) => z.object({
+  schema: z.object({
     title: z.string(),
     description: z.string(),
     status: z.enum(['Live', 'Building', 'Not Started']).optional(),
     tags: z.array(z.string()).default([]),
     live: z.string().url().optional(),
     source: z.string().url().optional(),
-    image: image().optional(),      // file next to the .md, e.g. ./medai.png
+    image: z.string().optional(),   // path under public/, e.g. /medai.png
     order: z.number().default(0),   // lower comes first
   }),
 });

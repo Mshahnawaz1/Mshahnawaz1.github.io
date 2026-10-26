@@ -41,7 +41,7 @@ status: "Live"          # optional: Live | Building | Not Started
 tags: ["FastAPI"]
 live: "https://..."     # optional
 source: "https://..."   # optional
-image: "./x.png"        # optional, file next to the .md; a placeholder shows without it
+image: "/x.png"         # optional, file in public/ (path from site root); a placeholder shows without it
 order: 1                # lower comes first
 ```
 
