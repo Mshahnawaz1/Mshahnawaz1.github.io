@@ -1,6 +1,7 @@
 ---
 import { render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
+import ThemeToggle from '../../components/ThemeToggle.astro';
 import { getPosts, formatDate } from '../../lib/posts';
 
 export async function getStaticPaths() {
@@ -15,7 +16,10 @@ const readTime = Math.max(1, Math.round((post.body ?? '').split(/\s+/).length / 
 
 <Base title={`${title} — Mohammad Shahnawaz`} description={excerpt ?? title} type="article">
   <main class="column page">
-    <a class="back" href="/blogs/">← All articles</a>
+    <div class="page-bar">
+      <a class="back" href="/blogs/">← All articles</a>
+      <ThemeToggle />
+    </div>
     <article>
       <h1>{title}</h1>
       <div class="post-meta">

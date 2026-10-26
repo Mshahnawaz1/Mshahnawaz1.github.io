@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import ThemeToggle from '../../components/ThemeToggle.astro';
 import BlogList from '../../components/BlogList.astro';
 import { getPosts } from '../../lib/posts';
 
@@ -11,7 +12,10 @@ const posts = await getPosts();
   description="Technical blog posts on building asynchronous systems, Model Context Protocol (MCP) servers, vector databases, and agentic AI architectures."
 >
   <main class="column page">
-    <a class="back" href="/">← Home</a>
+    <div class="page-bar">
+      <a class="back" href="/">← Home</a>
+      <ThemeToggle />
+    </div>
     <h1>Blogs</h1>
     <p class="lead">Field notes on systems, AI agents, and the craft of building software.</p>
     <BlogList posts={posts} />
