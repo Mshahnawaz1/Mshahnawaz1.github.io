@@ -1,0 +1,31 @@
+---
+import { render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { getPosts, formatDate } from '../../lib/posts';
+
+export async function getStaticPaths() {
+  return (await getPosts()).map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const { title, date, tags, excerpt } = post.data;
+const readTime = Math.max(1, Math.round((post.body ?? '').split(/\s+/).length / 200));
+---
+
+<Base title={`${title} — Mohammad Shahnawaz`} description={excerpt ?? title} type="article">
+  <main class="column page">
+    <a class="back" href="/blogs/">← All articles</a>
+    <article>
+      <h1>{title}</h1>
+      <div class="post-meta">
+        <time class="meta" datetime={date.toISOString()}>{formatDate(date)}</time>
+        <span class="meta">·</span>
+        <span class="meta">{readTime} min read</span>
+        {tags.map((tag) => <span class="tag">{tag}</span>)}
+      </div>
+      <div class="prose"><Content /></div>
+    </article>
+    <footer><small>&copy; 2026 Mohammad Shahnawaz</small></footer>
+  </main>
+</Base>

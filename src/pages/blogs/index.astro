@@ -1,0 +1,20 @@
+---
+import Base from '../../layouts/Base.astro';
+import BlogList from '../../components/BlogList.astro';
+import { getPosts } from '../../lib/posts';
+
+const posts = await getPosts();
+---
+
+<Base
+  title="Blogs — Mohammad Shahnawaz"
+  description="Technical blog posts on building asynchronous systems, Model Context Protocol (MCP) servers, vector databases, and agentic AI architectures."
+>
+  <main class="column page">
+    <a class="back" href="/">← Home</a>
+    <h1>Blogs</h1>
+    <p class="lead">Field notes on systems, AI agents, and the craft of building software.</p>
+    <BlogList posts={posts} />
+    <footer><small>&copy; 2026 Mohammad Shahnawaz</small></footer>
+  </main>
+</Base>

@@ -11,7 +11,7 @@ Design reference: @design.md. Its "Recommended Tech Stack" (Next.js, Framer Moti
 
 ## Structure
 - `src/pages/index.astro` — home (hero, experience, projects, skills, highlights, latest blogs, footer)
-- `src/pages/blogs/index.astro`, `src/pages/blogs/[...slug].astro` — blog list and posts
+- `src/pages/blogs/index.astro`, `src/pages/blogs/[slug].astro` — blog list and posts
 - `src/pages/rss.xml.js` — RSS feed
 - `src/content/blogs/*.md` — blog posts; schema in `src/content.config.ts`
 - `src/layouts/Base.astro` — `<head>`, fonts, theme init, theme toggle, shared script

@@ -1,0 +1,154 @@
+---
+import Base from '../layouts/Base.astro';
+import BlogList from '../components/BlogList.astro';
+import { getPosts } from '../lib/posts';
+
+const latest = (await getPosts()).slice(0, 3);
+---
+
+<Base
+  title="Mohammad Shahnawaz — Software Engineer"
+  description="Backend software engineer building memory, infrastructure, and tools for AI agents, FastAPI services, and production web apps."
+>
+  <div class="clock" id="clock" aria-hidden="true">00:00:00</div>
+
+  <nav class="index" id="index" aria-label="Page index">
+      <a href="#experience">experience</a>
+      <a href="#projects">projects</a>
+      <a href="#skills">skills</a>
+      <a href="#highlights">highlights</a>
+      <a href="#blogs">blogs</a>
+  </nav>
+
+  <main class="column">
+      <header class="hero">
+          <img src="/profile.png" alt="Mohammad Shahnawaz" class="avatar">
+          <h1>Mohammad Shahnawaz</h1>
+          <div class="status">agent_host: active</div>
+          <p class="bio">Backend engineer. I love building, breaking, and shipping asynchronous architectures &amp; agentic AI tools.</p>
+          <p>Specializing in AI pipelines: async FastAPI services, PostgreSQL vector schemas, and Model Context Protocol (MCP) toolkits. Seeking junior backend or AI engineering roles.</p>
+          <div class="hero-actions">
+              <a class="flip" href="mailto:mshahnawaz1.dev@gmail.com">
+                  <span class="flip-face flip-front">Get in touch</span>
+                  <span class="flip-face flip-back">mshahnawaz1.dev@gmail.com</span>
+              </a>
+              <a class="pill" href="https://github.com/Mshahnawaz1" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a class="pill" href="https://linkedin.com/in/Mshahnawaz1" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a class="pill" href="/MShahnawaz.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+          </div>
+      </header>
+
+      <section id="experience">
+          <h2 class="eyebrow">Experience</h2>
+          <article class="item">
+              <div class="item-head">
+                  <h3>Software Developer <span class="meta">(Contract)</span></h3>
+                  <span class="meta">Dec 2025 — Feb 2026</span>
+              </div>
+              <p class="sub">Raza Studioz</p>
+              <ul>
+                  <li>Built a full-stack web app with React, serverless REST API, and Supabase (PostgreSQL) serving <strong>100+ active users</strong>.</li>
+                  <li>Engineered an email dispatch system with Resend for real-time admin notifications (sub-2s delivery), while collaborating with the founder to clarify evolving requirements and prioritize features under shifting deadlines.</li>
+              </ul>
+              <div class="tags"><span class="tag">React</span><span class="tag">Supabase</span><span class="tag">PostgreSQL</span><span class="tag">Resend</span></div>
+          </article>
+          <article class="item">
+              <div class="item-head">
+                  <h3>Open Source Contributor</h3>
+                  <span class="meta">Feb 2025 — May 2025</span>
+              </div>
+              <p class="sub">MetaBrainz Foundation (ListenBrainz)</p>
+              <ul>
+                  <li>Implemented persistent volume storage via LocalStorage across the React codebase, enabling user preference retention across sessions for <strong>1M+ active users</strong> on the platform.</li>
+                  <li>Contributed 4+ pull requests reviewed and merged by core maintainers, iterating on implementation across multiple review cycles while adapting to an unfamiliar large-scale codebase.</li>
+              </ul>
+              <div class="tags"><span class="tag">React</span><span class="tag">LocalStorage</span></div>
+          </article>
+      </section>
+
+      <section id="projects">
+          <h2 class="eyebrow">Projects</h2>
+          <article class="item">
+              <div class="item-head">
+                  <h3>ResumeXAnalyzer <span class="status-badge">Live</span></h3>
+              </div>
+              <p>Multi-agent AI platform analyzing 50+ resumes with sub-3000ms response time to identify gaps and improve job-fit alignment. Tested with pytest and deployed on Vercel and Railway with automated CI/CD.</p>
+              <div class="tags"><span class="tag">FastAPI</span><span class="tag">LangChain</span><span class="tag">Railway</span><span class="tag">React</span></div>
+              <div class="item-links">
+                  <a class="pill" href="https://resume-x-analyzer.vercel.app/" target="_blank" rel="noopener noreferrer">View Project</a>
+                  <a class="pill" href="https://github.com/Mshahnawaz1/ResumeXanalyzer" target="_blank" rel="noopener noreferrer">Source</a>
+              </div>
+          </article>
+          <article class="item">
+              <div class="item-head">
+                  <h3>MedAI <span class="status-badge">Live</span></h3>
+              </div>
+              <p>Agentic healthcare chatbot implementing Model Context Protocol (MCP) with 8+ dynamically invoked tools. Reduced manual booking time by 60% with an async FastAPI backend and PostgreSQL schemas at sub-3s latency.</p>
+              <div class="tags"><span class="tag">FastAPI</span><span class="tag">LangChain</span><span class="tag">MCP</span><span class="tag">PostgreSQL</span></div>
+              <div class="item-links">
+                  <a class="pill" href="https://agentic-appointment-booking.vercel.app/" target="_blank" rel="noopener noreferrer">View Project</a>
+                  <a class="pill" href="https://github.com/mshahnawaz1/Agentic-appointment-booking" target="_blank" rel="noopener noreferrer">Source</a>
+              </div>
+          </article>
+          <article class="item">
+              <div class="item-head">
+                  <h3>SmartLearn <span class="status-badge">Live</span></h3>
+              </div>
+              <p>RAG document retrieval pipeline with Gemini embeddings enhancing matching accuracy by 80%. Dockerized FastAPI backend on HF Spaces serving agent requests with sub-500ms latency.</p>
+              <div class="tags"><span class="tag">FastAPI</span><span class="tag">ChromaDB</span><span class="tag">Gemini</span><span class="tag">Docker</span></div>
+              <div class="item-links">
+                  <a class="pill" href="https://huggingface.co/spaces/SlimeRimuru/RAG-learning" target="_blank" rel="noopener noreferrer">View Project</a>
+                  <a class="pill" href="https://github.com/Mshahnawaz1/Rag-agent-for-document" target="_blank" rel="noopener noreferrer">Source</a>
+              </div>
+          </article>
+          <article class="item">
+              <div class="item-head">
+                  <h3>Irrigo Smart Irrigation</h3>
+              </div>
+              <p>Full-stack IoT dashboard for monitoring soil telemetry and triggering water pump controllers remotely. Flask REST APIs talk to an ESP8266, cutting water wastage by 80% through automated pump scheduling.</p>
+              <div class="tags"><span class="tag">Flask</span><span class="tag">Python</span><span class="tag">IoT</span><span class="tag">ESP8266</span></div>
+              <div class="item-links">
+                  <a class="pill" href="https://github.com/Mshahnawaz1/Irrigo-smart-irrigation-system" target="_blank" rel="noopener noreferrer">View Project</a>
+              </div>
+          </article>
+      </section>
+
+      <section id="skills">
+          <h2 class="eyebrow">Skills</h2>
+          <div class="skills">
+              <span class="tag">Python</span><span class="tag">JavaScript</span><span class="tag">SQL</span>
+              <span class="tag">FastAPI</span><span class="tag">Flask</span><span class="tag">Pydantic</span><span class="tag">REST APIs</span>
+              <span class="tag">LangChain</span><span class="tag">LangGraph</span><span class="tag">MCP</span><span class="tag">LLMs</span><span class="tag">RAG</span>
+              <span class="tag">PostgreSQL</span><span class="tag">Supabase</span><span class="tag">Docker</span><span class="tag">Git</span><span class="tag">Jupyter</span>
+          </div>
+      </section>
+
+      <section id="highlights">
+          <h2 class="eyebrow">Highlights</h2>
+          <div class="marquee">
+              <div class="marquee-track" id="marquee-track">
+                  <div class="highlight"><strong>Top 1% rank</strong> among 33,131 students in NPTEL IoT certification, IIT Kharagpur.</div>
+                  <div class="highlight"><strong>CS50's AI with Python</strong> certificate, Harvard University / edX.</div>
+                  <div class="highlight"><strong>CS50x</strong> Introduction to Computer Science certificate, Harvard University.</div>
+                  <div class="highlight"><strong>4+ merged PRs</strong> in ListenBrainz, used by 1M+ users.</div>
+              </div>
+          </div>
+          <div class="education">
+              <h3>B.Tech in Electronics &amp; Communication</h3>
+              <p class="sub">Guru Ghasidas Vishwavidyalaya (Central University) — Graduating May 2026</p>
+              <p class="meta">CGPA 8.10 / 10.0</p>
+          </div>
+      </section>
+
+      <section id="blogs">
+          <h2 class="eyebrow">Blogs</h2>
+          <BlogList posts={latest} />
+          <a class="more" href="/blogs/">All articles →</a>
+      </section>
+
+      <footer>
+          <p class="quote">“Do so much work that it would be unreasonable for you to not be successful.”</p>
+          <small>&copy; 2026 Mohammad Shahnawaz</small>
+      </footer>
+  </main>
+</Base>

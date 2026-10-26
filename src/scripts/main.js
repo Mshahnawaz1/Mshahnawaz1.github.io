@@ -1,9 +1,6 @@
 const $ = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
 
-const escapeHTML = (str) =>
-    String(str ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
-
 /* Theme toggle (initial theme is set by the inline script in <head>) */
 $('#theme-toggle').addEventListener('click', () => {
     const next = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
@@ -53,26 +50,4 @@ if (track) {
         copy.setAttribute('aria-hidden', 'true');
         return copy;
     }));
-}
-
-/* Blog list: rendered from the build-time manifest (see vite-plugin-md-blogs.mjs) */
-const blogList = $('#blog-list');
-if (blogList) {
-    const base = location.pathname.includes('/blogs') ? './' : 'blogs/';
-    fetch(`${base}posts-manifest.json`)
-        .then((res) => (res.ok ? res.json() : Promise.reject(res.status)))
-        .then((posts) => {
-            const shown = posts.slice(0, Number(blogList.dataset.limit) || posts.length);
-            blogList.innerHTML = shown.length
-                ? shown.map((post) => `
-                    <a class="blog-row" href="${base}${escapeHTML(post.slug)}/">
-                        <span class="blog-title">${escapeHTML(post.title)}</span>
-                        <span class="blog-meta">
-                            <time class="meta" datetime="${escapeHTML(post.date)}">${escapeHTML(post.dateLabel)}</time>
-                            ${(post.tags ?? []).map((t) => `<span class="tag">${escapeHTML(t)}</span>`).join('')}
-                        </span>
-                    </a>`).join('')
-                : '<p class="empty">No articles yet.</p>';
-        })
-        .catch(() => (blogList.innerHTML = '<p class="empty">Could not load articles.</p>'));
 }
