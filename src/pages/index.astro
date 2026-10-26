@@ -18,10 +18,10 @@ const projects = await getProjects();
       <p class="index-label">Index</p>
       <a href="#home">Home</a>
       <a href="#experience">Experience</a>
-      <a href="#writing">Writing</a>
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
       <a href="#highlights">Highlights</a>
+      <a href="#writing">Writing</a>
   </nav>
 
   <main class="column">
@@ -98,12 +98,6 @@ const projects = await getProjects();
           </article>
       </section>
 
-      <section id="writing">
-          <h2 class="heading">Writing</h2>
-          <BlogList posts={latest} />
-          <a class="more" href="/blogs/">All articles →</a>
-      </section>
-
       <section id="projects">
           <h2 class="heading">Projects</h2>
           <div class="cards">
@@ -139,6 +133,12 @@ const projects = await getProjects();
                   <p class="date">Graduating May 2026 · CGPA 8.10 / 10.0</p>
               </div>
           </article>
+      </section>
+
+      <section id="writing">
+          <h2 class="heading">Writing</h2>
+          <BlogList posts={latest} />
+          <a class="more" href="/blogs/">All articles →</a>
       </section>
 
       <footer>
