@@ -3,340 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script>
-        (function() {
-            const savedTheme = localStorage.getItem('theme') || 'dark';
-            document.documentElement.setAttribute('data-theme', savedTheme);
-        })();
-    </script>
+    <script>document.documentElement.dataset.theme = localStorage.getItem('theme') || 'dark';</script>
     <title>Mohammad Shahnawaz — Software Engineer</title>
     <meta name="description" content="Backend software engineer building memory, infrastructure, and tools for AI agents, FastAPI services, and production web apps.">
-    
-    <!-- Open Graph -->
+
     <meta property="og:type" content="website">
     <meta property="og:title" content="Mohammad Shahnawaz — Software Engineer">
     <meta property="og:description" content="Backend software engineer building memory, infrastructure, and tools for AI agents.">
     <meta property="og:image" content="./profile.png">
-    
-    <!-- Fonts -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&display=swap" rel="stylesheet">
-    
-    <!-- CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="min-h-screen">
-    <!-- Center Content Sheet Bounded by Vertical Borders -->
-    <main class="sheet-container">
-        <!-- Navigation Header (sticky) -->
-        <div class="nav-sticky-wrap">
-        <nav class="nav-bar" aria-label="Main Navigation">
-            <a href="#" class="nav-logo" id="logo-link">M. Shahnawaz</a>
-            <div class="nav-links">
-                <a href="#about" class="nav-link" id="nav-about-link">About</a>
-                <a href="#experience" class="nav-link" id="nav-experience-link">Experience</a>
-                <a href="#projects" class="nav-link" id="nav-projects-link">Projects</a>
-                <a href="blogs/" class="nav-link" id="nav-blogs-link">Blogs</a>
-                <a href="https://github.com/Mshahnawaz1" target="_blank" rel="noopener noreferrer" class="nav-link" id="nav-github-link">
-                    <span>GitHub</span>
-                    <svg class="external-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+<body>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light and dark theme">
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+    </button>
+
+    <div class="clock" id="clock" aria-hidden="true">00:00:00</div>
+
+    <nav class="index" id="index" aria-label="Page index">
+        <a href="#experience">experience</a>
+        <a href="#projects">projects</a>
+        <a href="#skills">skills</a>
+        <a href="#highlights">highlights</a>
+        <a href="#blogs">blogs</a>
+    </nav>
+
+    <main class="column">
+        <header class="hero">
+            <img src="./profile.png" alt="Mohammad Shahnawaz" class="avatar">
+            <h1>Mohammad Shahnawaz</h1>
+            <div class="status">agent_host: active</div>
+            <p class="bio">Backend engineer. I love building, breaking, and shipping asynchronous architectures &amp; agentic AI tools.</p>
+            <p>Specializing in AI pipelines: async FastAPI services, PostgreSQL vector schemas, and Model Context Protocol (MCP) toolkits. Seeking junior backend or AI engineering roles.</p>
+            <div class="hero-actions">
+                <a class="flip" href="mailto:mshahnawaz1.dev@gmail.com">
+                    <span class="flip-face flip-front">Get in touch</span>
+                    <span class="flip-face flip-back">mshahnawaz1.dev@gmail.com</span>
                 </a>
-                <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle light and dark theme" title="Toggle Theme">
-                    <!-- Sun Icon -->
-                    <svg class="theme-icon sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>
-                    <!-- Moon Icon -->
-                    <svg class="theme-icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
-                </button>
+                <a class="pill" href="https://github.com/Mshahnawaz1" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a class="pill" href="https://linkedin.com/in/Mshahnawaz1" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a class="pill" href="./MShahnawaz.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
             </div>
-        </nav>
-        </div>
+        </header>
 
-        <!-- Hero Section (Centered layout: Image Left, Summary Right) -->
-        <section class="hero-section" id="hero" aria-labelledby="hero-name">
-            <div class="hero-flex">
-                <div class="hero-image-col">
-                    <img src="./profile.png" alt="Mohammad Shahnawaz" class="profile-img" id="profile-pic">
+        <section id="experience">
+            <h2 class="eyebrow">Experience</h2>
+            <article class="item">
+                <div class="item-head">
+                    <h3>Software Developer <span class="meta">(Contract)</span></h3>
+                    <span class="meta">Dec 2025 — Feb 2026</span>
                 </div>
-                <div class="hero-content-col">
-                    <h1 class="hero-name" id="hero-name">Mohammad Shahnawaz</h1>
-                    <div class="status-indicator">
-                        <span class="heartbeat-dot"></span>
-                        <span>agent_host: active</span>
-                    </div>
-                    <p class="hero-tagline">
-                        Building <span class="tagline-highlight">asynchronous architectures & agentic AI tools.</span>
-                    </p>
-                    <p class="hero-summary">
-                        Backend-focused developer specializing in AI pipelines. Experienced in building async FastAPI services, PostgreSQL vector schemas, and Model Context Protocol (MCP) toolkits. Seeking junior backend or AI engineering roles.
-                    </p>
-                    <div class="hero-links">
-                        <a href="https://github.com/Mshahnawaz1" target="_blank" rel="noopener noreferrer" class="hero-link">GitHub</a>
-                        <a href="https://linkedin.com/in/Mshahnawaz1" target="_blank" rel="noopener noreferrer" class="hero-link">LinkedIn</a>
-                        <a href="mailto:mshahnawaz1.dev@gmail.com" class="hero-link">Email</a>
-                        <a href="./shahnawaz_resume.pdf" target="_blank" class="hero-link">View Resume</a>
-                    </div>
+                <p class="sub">Raza Studioz</p>
+                <ul>
+                    <li>Built a full-stack web app with React, serverless REST API, and Supabase (PostgreSQL) serving <strong>100+ active users</strong>.</li>
+                    <li>Engineered an email dispatch system with Resend for real-time admin notifications (sub-2s delivery), while collaborating with the founder to clarify evolving requirements and prioritize features under shifting deadlines.</li>
+                </ul>
+                <div class="tags"><span class="tag">React</span><span class="tag">Supabase</span><span class="tag">PostgreSQL</span><span class="tag">Resend</span></div>
+            </article>
+            <article class="item">
+                <div class="item-head">
+                    <h3>Open Source Contributor</h3>
+                    <span class="meta">Feb 2025 — May 2025</span>
                 </div>
+                <p class="sub">MetaBrainz Foundation (ListenBrainz)</p>
+                <ul>
+                    <li>Implemented persistent volume storage via LocalStorage across the React codebase, enabling user preference retention across sessions for <strong>1M+ active users</strong> on the platform.</li>
+                    <li>Contributed 4+ pull requests reviewed and merged by core maintainers, iterating on implementation across multiple review cycles while adapting to an unfamiliar large-scale codebase.</li>
+                </ul>
+                <div class="tags"><span class="tag">React</span><span class="tag">LocalStorage</span></div>
+            </article>
+        </section>
+
+        <section id="projects">
+            <h2 class="eyebrow">Projects</h2>
+            <article class="item">
+                <div class="item-head">
+                    <h3>ResumeXAnalyzer <span class="status-badge">Live</span></h3>
+                </div>
+                <p>Multi-agent AI platform analyzing 50+ resumes with sub-3000ms response time to identify gaps and improve job-fit alignment. Tested with pytest and deployed on Vercel and Railway with automated CI/CD.</p>
+                <div class="tags"><span class="tag">FastAPI</span><span class="tag">LangChain</span><span class="tag">Railway</span><span class="tag">React</span></div>
+                <div class="item-links">
+                    <a class="pill" href="https://resume-x-analyzer.vercel.app/" target="_blank" rel="noopener noreferrer">View Project</a>
+                    <a class="pill" href="https://github.com/Mshahnawaz1/ResumeXanalyzer" target="_blank" rel="noopener noreferrer">Source</a>
+                </div>
+            </article>
+            <article class="item">
+                <div class="item-head">
+                    <h3>MedAI <span class="status-badge">Live</span></h3>
+                </div>
+                <p>Agentic healthcare chatbot implementing Model Context Protocol (MCP) with 8+ dynamically invoked tools. Reduced manual booking time by 60% with an async FastAPI backend and PostgreSQL schemas at sub-3s latency.</p>
+                <div class="tags"><span class="tag">FastAPI</span><span class="tag">LangChain</span><span class="tag">MCP</span><span class="tag">PostgreSQL</span></div>
+                <div class="item-links">
+                    <a class="pill" href="https://agentic-appointment-booking.vercel.app/" target="_blank" rel="noopener noreferrer">View Project</a>
+                    <a class="pill" href="https://github.com/mshahnawaz1/Agentic-appointment-booking" target="_blank" rel="noopener noreferrer">Source</a>
+                </div>
+            </article>
+            <article class="item">
+                <div class="item-head">
+                    <h3>SmartLearn <span class="status-badge">Live</span></h3>
+                </div>
+                <p>RAG document retrieval pipeline with Gemini embeddings enhancing matching accuracy by 80%. Dockerized FastAPI backend on HF Spaces serving agent requests with sub-500ms latency.</p>
+                <div class="tags"><span class="tag">FastAPI</span><span class="tag">ChromaDB</span><span class="tag">Gemini</span><span class="tag">Docker</span></div>
+                <div class="item-links">
+                    <a class="pill" href="https://huggingface.co/spaces/SlimeRimuru/RAG-learning" target="_blank" rel="noopener noreferrer">View Project</a>
+                    <a class="pill" href="https://github.com/Mshahnawaz1/Rag-agent-for-document" target="_blank" rel="noopener noreferrer">Source</a>
+                </div>
+            </article>
+            <article class="item">
+                <div class="item-head">
+                    <h3>Irrigo Smart Irrigation</h3>
+                </div>
+                <p>Full-stack IoT dashboard for monitoring soil telemetry and triggering water pump controllers remotely. Flask REST APIs talk to an ESP8266, cutting water wastage by 80% through automated pump scheduling.</p>
+                <div class="tags"><span class="tag">Flask</span><span class="tag">Python</span><span class="tag">IoT</span><span class="tag">ESP8266</span></div>
+                <div class="item-links">
+                    <a class="pill" href="https://github.com/Mshahnawaz1/Irrigo-smart-irrigation-system" target="_blank" rel="noopener noreferrer">View Project</a>
+                </div>
+            </article>
+        </section>
+
+        <section id="skills">
+            <h2 class="eyebrow">Skills</h2>
+            <div class="skills">
+                <span class="tag">Python</span><span class="tag">JavaScript</span><span class="tag">SQL</span>
+                <span class="tag">FastAPI</span><span class="tag">Flask</span><span class="tag">Pydantic</span><span class="tag">REST APIs</span>
+                <span class="tag">LangChain</span><span class="tag">LangGraph</span><span class="tag">MCP</span><span class="tag">LLMs</span><span class="tag">RAG</span>
+                <span class="tag">PostgreSQL</span><span class="tag">Supabase</span><span class="tag">Docker</span><span class="tag">Git</span><span class="tag">Jupyter</span>
             </div>
         </section>
 
-        <!-- About Section (Divided by border) -->
-        <section class="sheet-section" id="about" aria-labelledby="about-heading">
-            <h2 class="section-eyebrow" id="about-heading">About</h2>
-            
-            <div class="about-content">
-                <div class="about-text">
-                    <p class="p-block">
-                        I bridge the gap between deterministic backend systems and agentic AI models. My engineering focuses on developing robust API backends, modeling schemas, and designing Model Context Protocol (MCP) integrations that empower LLMs with real-world tool execution.
-                    </p>
-                    <p class="p-block">
-                        I am dedicated to writing clean, maintainable, and type-safe code that scales. Most of my work runs on FastAPI, PostgreSQL/SQLAlchemy, and Dockerized environments.
-                    </p>
+        <section id="highlights">
+            <h2 class="eyebrow">Highlights</h2>
+            <div class="marquee">
+                <div class="marquee-track" id="marquee-track">
+                    <div class="highlight"><strong>Top 1% rank</strong> among 33,131 students in NPTEL IoT certification, IIT Kharagpur.</div>
+                    <div class="highlight"><strong>CS50's AI with Python</strong> certificate, Harvard University / edX.</div>
+                    <div class="highlight"><strong>CS50x</strong> Introduction to Computer Science certificate, Harvard University.</div>
+                    <div class="highlight"><strong>4+ merged PRs</strong> in ListenBrainz, used by 1M+ users.</div>
                 </div>
+            </div>
+            <div class="education">
+                <h3>B.Tech in Electronics &amp; Communication</h3>
+                <p class="sub">Guru Ghasidas Vishwavidyalaya (Central University) — Graduating May 2026</p>
+                <p class="meta">CGPA 8.10 / 10.0</p>
             </div>
         </section>
 
-        <!-- Experience Section -->
-        <section class="sheet-section" id="experience" aria-labelledby="experience-heading">
-            <h2 class="section-eyebrow" id="experience-heading">Experience</h2>
-            <div class="experience-list">
-                <!-- Raza Studioz -->
-                <article class="experience-row">
-                    <div class="experience-meta">
-                        <h3 class="exp-role">Software Developer <small>(Contract)</small></h3>
-                        <div class="exp-details">
-                            <span class="exp-company">Raza Studioz</span>
-                            <span class="exp-date">Dec 2025 — Feb 2026</span>
-                        </div>
-                    </div>
-                    <ul class="exp-bullets">
-                        <li>Built a full-stack web app with React, serverless REST API, and Supabase (PostgreSQL) serving <strong>100+ active users</strong>.</li>
-                        <li>Engineered an email dispatch system with Resend for real-time admin notifications (sub-2s delivery), while collaborating with the founder to clarify evolving requirements and prioritize features under shifting deadlines.</li>
-                    </ul>
-                </article>
-
-                <!-- MetaBrainz -->
-                <article class="experience-row">
-                    <div class="experience-meta">
-                        <h3 class="exp-role">Open Source Contributor</h3>
-                        <div class="exp-details">
-                            <span class="exp-company">MetaBrainz Foundation (ListenBrainz)</span>
-                            <span class="exp-date">Feb 2025 — May 2025</span>
-                        </div>
-                    </div>
-                    <ul class="exp-bullets">
-                        <li>Implemented persistent volume storage via LocalStorage across the React codebase, enabling user preference retention across sessions for <strong>1M+ active users</strong> on the platform.</li>
-                        <li>Contributed 4+ pull requests reviewed and merged by core maintainers, iterating on implementation across multiple review cycles while adapting to an unfamiliar large-scale codebase.</li>
-                    </ul>
-                </article>
-            </div>
+        <section id="blogs">
+            <h2 class="eyebrow">Blogs</h2>
+            <div id="blog-list" data-limit="3"><p class="empty">Loading articles…</p></div>
+            <a class="more" href="blogs/">All articles →</a>
         </section>
 
-        <!-- Projects Section (Horizontal Slider) -->
-        <section class="sheet-section" id="projects" aria-labelledby="projects-heading">
-            <div class="projects-section-header">
-                <h2 class="section-eyebrow" id="projects-heading">Projects</h2>
-                <div class="slider-controls">
-                    <button class="slider-arrow prev-btn" aria-label="Previous Project" id="project-prev">
-                        <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                    </button>
-                    <button class="slider-arrow next-btn" aria-label="Next Project" id="project-next">
-                        <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                    </button>
-                </div>
-            </div>
-            <div class="projects-slider-wrapper">
-                <div class="projects-slider" id="projects-slider-container">
-                    <!-- ResumeXAnalyzer -->
-                    <article class="project-card">
-                        <div class="project-card-main">
-                            <div class="project-card-header">
-                                <div class="project-title-row">
-                                    <h3 class="project-title">ResumeXAnalyzer</h3>
-                                    <div class="project-card-links">
-                                        <a href="https://github.com/Mshahnawaz1/ResumeXanalyzer" target="_blank" rel="noopener noreferrer" class="project-card-link-icon" aria-label="GitHub Repository" title="GitHub Repository">
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
-                                        </a>
-                                        <a href="https://resume-x-analyzer.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-card-link-icon" aria-label="Live Demo" title="Live Demo">
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-                                        </a>
-                                    </div>
-                                </div>
-                                <span class="project-tech">FastAPI • LangChain • Railway • React</span>
-                            </div>
-                            <p class="project-description">
-                                Multi-agent AI platform analyzing 50+ resumes with sub-3000ms response time to identify gaps and improve job-fit alignment.
-                            </p>
-                        </div>
-                        <ul class="project-bullets">
-                            <li>Wrote pytest unit and integration tests covering the analysis pipeline.</li>
-                            <li>Deployed on Vercel and Railway with automated CI/CD.</li>
-                        </ul>
-                    </article>
-
-                    <!-- MedAI -->
-                    <article class="project-card">
-                        <div class="project-card-main">
-                            <div class="project-card-header">
-                                <div class="project-title-row">
-                                    <h3 class="project-title">MedAI</h3>
-                                    <div class="project-card-links">
-                                        <a href="https://github.com/mshahnawaz1/Agentic-appointment-booking" target="_blank" rel="noopener noreferrer" class="project-card-link-icon" aria-label="GitHub Repository" title="GitHub Repository">
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
-                                        </a>
-                                        <a href="https://agentic-appointment-booking.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-card-link-icon" aria-label="Live Demo" title="Live Demo">
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-                                        </a>
-                                    </div>
-                                </div>
-                                <span class="project-tech">FastAPI • LangChain • MCP • PostgreSQL</span>
-                            </div>
-                            <p class="project-description">
-                                Agentic healthcare chatbot implementing Model Context Protocol (MCP) with 8+ dynamically invoked tools.
-                            </p>
-                        </div>
-                        <ul class="project-bullets">
-                            <li>Reduced manual booking time by 60% with async FastAPI backend.</li>
-                            <li>PostgreSQL schemas (SQLAlchemy) with sub-3s latency.</li>
-                        </ul>
-                    </article>
-
-                    <!-- SmartLearn -->
-                    <article class="project-card">
-                        <div class="project-card-main">
-                            <div class="project-card-header">
-                                <div class="project-title-row">
-                                    <h3 class="project-title">SmartLearn</h3>
-                                    <div class="project-card-links">
-                                        <a href="https://github.com/Mshahnawaz1/Rag-agent-for-document" target="_blank" rel="noopener noreferrer" class="project-card-link-icon" aria-label="GitHub Repository" title="GitHub Repository">
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
-                                        </a>
-                                        <a href="https://huggingface.co/spaces/SlimeRimuru/RAG-learning" target="_blank" rel="noopener noreferrer" class="project-card-link-icon" aria-label="Live Demo" title="Live Demo">
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-                                        </a>
-                                    </div>
-                                </div>
-                                <span class="project-tech">FastAPI • ChromaDB • Gemini • Docker</span>
-                            </div>
-                            <p class="project-description">
-                                RAG document retrieval pipeline with Gemini embeddings enhancing matching accuracy by 80%.
-                            </p>
-                        </div>
-                        <ul class="project-bullets">
-                            <li>Dockerized FastAPI backend deployed on HF Spaces.</li>
-                            <li>Serves agent requests with sub-500ms latency.</li>
-                        </ul>
-                    </article>
-
-                    <!-- Irrigo -->
-                    <article class="project-card">
-                        <div class="project-card-main">
-                            <div class="project-card-header">
-                                <div class="project-title-row">
-                                    <h3 class="project-title">Irrigo Smart Irrigation</h3>
-                                    <div class="project-card-links">
-                                        <a href="https://github.com/Mshahnawaz1/Irrigo-smart-irrigation-system" target="_blank" rel="noopener noreferrer" class="project-card-link-icon" aria-label="GitHub Repository" title="GitHub Repository">
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
-                                        </a>
-                                        <a href="https://github.com/Mshahnawaz1/Irrigo-smart-irrigation-system" target="_blank" rel="noopener noreferrer" class="project-card-link-icon" aria-label="Live Demo" title="Live Demo">
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-                                        </a>
-                                    </div>
-                                </div>
-                                <span class="project-tech">Flask • Python • IoT • ESP8266</span>
-                            </div>
-                            <p class="project-description">
-                                Full-stack IoT dashboard for monitoring soil telemetry metrics and triggering water pump controllers remotely.
-                            </p>
-                        </div>
-                        <ul class="project-bullets">
-                            <li>REST APIs on Flask for communication with ESP8266.</li>
-                            <li>Reduced water wastage by 80% through automated pump scheduling.</li>
-                        </ul>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section class="sheet-section" id="skills" aria-labelledby="skills-heading">
-            <h2 class="section-eyebrow" id="skills-heading">Skills</h2>
-            <div class="skills-grid">
-                <div class="skills-block">
-                    <h3 class="skills-category-title">Languages</h3>
-                    <p class="skills-list">Python (primary), Javascript, SQL</p>
-                </div>
-                <div class="skills-block">
-                    <h3 class="skills-category-title">AI / ML & GenAI</h3>
-                    <p class="skills-list">LangChain, LangGraph, Model Context Protocol (MCP), LLMs, RAG Chatbots</p>
-                </div>
-                <div class="skills-block">
-                    <h3 class="skills-category-title">Web & APIs</h3>
-                    <p class="skills-list">FastAPI, REST APIs, Flask, Pydantic</p>
-                </div>
-                <div class="skills-block">
-                    <h3 class="skills-category-title">Developer Tools</h3>
-                    <p class="skills-list">Git, Docker, Supabase, PostgreSQL, Jupyter Notebook</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Education & Credentials Section -->
-        <section class="sheet-section" id="education" aria-labelledby="education-heading">
-            <h2 class="section-eyebrow" id="education-heading">Education & Certs</h2>
-            <div class="education-grid">
-                <div class="education-block">
-                    <h3 class="edu-degree">B.Tech in Electronics & Communication</h3>
-                    <p class="edu-school">Guru Ghasidas Vishwavidyalaya (Central University) — Graduating May 2026</p>
-                    <p class="edu-grade">CGPA: <strong>8.10 / 10.0</strong></p>
-                </div>
-                
-                <div class="certs-block">
-                    <ul class="certs-items-list">
-                        <li>
-                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                            <span><strong>Top 1% Rank</strong> (among 33,131 students) in NPTEL IoT certification, IIT Kharagpur.</span>
-                        </li>
-                        <li>
-                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                            <span>CS50's AI with Python Certificate — Harvard University / edX.</span>
-                        </li>
-                        <li>
-                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                            <span>CS50x Introduction to Computer Science Certificate — Harvard University.</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="footer-bottom-row">
-                <span class="footer-copy">&copy; 2026 Mohammad Shahnawaz.</span>
-                <div class="footer-social-links">
-                    <a href="mailto:mshahnawaz1.dev@gmail.com" class="footer-link">Email</a>
-                    <a href="https://github.com/Mshahnawaz1" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
-                    <a href="https://linkedin.com/in/Mshahnawaz1" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a>
-                </div>
-            </div>
-            
-            <!-- Fluid Brand Typography SVG in footer (similar to reference site) -->
-            <div class="footer-brand-wrap" aria-hidden="true">
-                <svg class="footer-brand-svg" viewBox="0 0 2800 240" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <text x="50%" y="50%" text-anchor="middle" dominant-baseline="central" stroke="currentColor" stroke-opacity="0.1" stroke-width="1.5" fill="url(#brand_text_gradient)" style="font-family: 'JetBrains Mono', monospace; font-size:160px; font-weight:800; letter-spacing: -0.04em;">M. SHAHNAWAZ</text>
-                    <defs>
-                        <linearGradient id="brand_text_gradient" x1="0" y1="0" x2="2800" y2="240" gradientUnits="userSpaceOnUse">
-                            <stop offset="0%" stop-color="currentColor" stop-opacity="0.15"></stop>
-                            <stop offset="100%" stop-color="currentColor" stop-opacity="0.95"></stop>
-                        </linearGradient>
-                    </defs>
-                </svg>
-            </div>
+        <footer>
+            <p class="quote">“Do so much work that it would be unreasonable for you to not be successful.”</p>
+            <small>&copy; 2026 Mohammad Shahnawaz</small>
         </footer>
     </main>
 
-    <!-- Script -->
     <script type="module" src="script.js"></script>
 </body>
 </html>

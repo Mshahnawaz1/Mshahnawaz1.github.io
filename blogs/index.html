@@ -3,160 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script>
-        (function() {
-            const savedTheme = localStorage.getItem('theme') || 'dark';
-            document.documentElement.setAttribute('data-theme', savedTheme);
-        })();
-    </script>
-    <title>Writing &amp; Thoughts — Mohammad Shahnawaz</title>
+    <script>document.documentElement.dataset.theme = localStorage.getItem('theme') || 'dark';</script>
+    <title>Blogs — Mohammad Shahnawaz</title>
     <meta name="description" content="Technical blog posts on building asynchronous systems, Model Context Protocol (MCP) servers, vector databases, and agentic AI architectures.">
 
-    <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Writing &amp; Thoughts — Mohammad Shahnawaz">
+    <meta property="og:title" content="Blogs — Mohammad Shahnawaz">
     <meta property="og:description" content="Technical blog posts on building asynchronous systems, MCP tools, and agentic architectures.">
     <meta property="og:image" content="../profile.png">
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
-
-    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles.css">
 </head>
-<body class="min-h-screen">
-    <main class="sheet-container">
-        <!-- Navigation Header (sticky) -->
-        <div class="nav-sticky-wrap">
-        <nav class="nav-bar" aria-label="Main Navigation">
-            <a href="../index.html" class="nav-logo" id="logo-link">M. Shahnawaz</a>
-            <div class="nav-links">
-                <a href="../index.html#about" class="nav-link" id="nav-about-link">About</a>
-                <a href="../index.html#experience" class="nav-link" id="nav-experience-link">Experience</a>
-                <a href="../index.html#projects" class="nav-link" id="nav-projects-link">Projects</a>
-                <a href="../blogs/" class="nav-link nav-link-active" id="nav-blogs-link">Blogs</a>
-                <a href="https://github.com/Mshahnawaz1" target="_blank" rel="noopener noreferrer" class="nav-link" id="nav-github-link">
-                    <span>GitHub</span>
-                    <svg class="external-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                </a>
-                <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle light and dark theme" title="Toggle Theme">
-                    <!-- Sun Icon -->
-                    <svg class="theme-icon sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>
-                    <!-- Moon Icon -->
-                    <svg class="theme-icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
-                </button>
-            </div>
-        </nav>
-        </div>
+<body>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light and dark theme">
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+    </button>
 
-        <!-- Blogs Section -->
-        <section class="sheet-section" id="blogs" aria-labelledby="blogs-heading">
-            <!-- Header row -->
-            <div class="blog-index-header">
-                <h2 class="section-eyebrow" id="blogs-heading">Writing &amp; Thoughts</h2>
-                <p class="blog-index-tagline">Field notes on systems, AI agents, and the craft of building software.</p>
-            </div>
-
-            <!-- Post list rendered dynamically from posts-manifest.json -->
-            <div class="blog-list" id="blog-table" role="list" aria-label="Blog posts">
-                <div class="blog-table-loading" aria-live="polite">Loading articles…</div>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="footer-bottom-row">
-                <span class="footer-copy">&copy; 2026 Mohammad Shahnawaz.</span>
-                <div class="footer-social-links">
-                    <a href="mailto:mshahnawaz1.dev@gmail.com" class="footer-link">Email</a>
-                    <a href="https://github.com/Mshahnawaz1" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
-                    <a href="https://linkedin.com/in/Mshahnawaz1" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a>
-                </div>
-            </div>
-
-            <!-- Fluid Brand Typography SVG in footer -->
-            <div class="footer-brand-wrap" aria-hidden="true">
-                <svg class="footer-brand-svg" viewBox="0 0 2800 240" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <text x="50%" y="50%" text-anchor="middle" dominant-baseline="central" stroke="currentColor" stroke-opacity="0.1" stroke-width="1.5" fill="url(#brand_text_gradient)" style="font-family: 'JetBrains Mono', monospace; font-size:160px; font-weight:800; letter-spacing: -0.04em;">M. SHAHNAWAZ</text>
-                    <defs>
-                        <linearGradient id="brand_text_gradient" x1="0" y1="0" x2="2800" y2="240" gradientUnits="userSpaceOnUse">
-                            <stop offset="0%" stop-color="currentColor" stop-opacity="0.15"></stop>
-                            <stop offset="100%" stop-color="currentColor" stop-opacity="0.95"></stop>
-                        </linearGradient>
-                    </defs>
-                </svg>
-            </div>
-        </footer>
+    <main class="column page">
+        <a class="back" href="../">← Home</a>
+        <h1>Blogs</h1>
+        <p class="lead">Field notes on systems, AI agents, and the craft of building software.</p>
+        <div id="blog-list"><p class="empty">Loading articles…</p></div>
+        <footer><small>&copy; 2026 Mohammad Shahnawaz</small></footer>
     </main>
 
-    <!-- Script -->
     <script type="module" src="../script.js"></script>
-    <script type="module">
-        /**
-         * Blog listing loader.
-         * Fetches /blogs/posts-manifest.json (generated at build time by vite-plugin-md-blogs)
-         * and renders an editorial table of posts.
-         */
-
-        function escapeHTML(str) {
-            return String(str ?? '')
-                .replace(/&/g, '&amp;')
-                .replace(/</g, '&lt;')
-                .replace(/>/g, '&gt;')
-                .replace(/"/g, '&quot;');
-        }
-
-        async function loadBlogIndex() {
-            const container = document.getElementById('blog-table');
-
-            try {
-                const res = await fetch('./posts-manifest.json');
-                if (!res.ok) throw new Error(`HTTP ${res.status}`);
-                const posts = await res.json();
-
-                if (posts.length === 0) {
-                    container.innerHTML = '<p class="blog-table-empty">No articles yet. Check back soon.</p>';
-                    return;
-                }
-
-                container.innerHTML = '';
-
-                posts.forEach((post) => {
-                    const row = document.createElement('a');
-                    row.className = 'blog-list-item';
-                    row.href = `./${post.slug}/`;
-                    row.setAttribute('role', 'listitem');
-                    row.setAttribute('aria-label', post.title);
-
-                    // Support both a tags array and a legacy single tag string
-                    const tagsArr = Array.isArray(post.tags)
-                        ? post.tags
-                        : (post.tag ? [post.tag] : []);
-
-                    const tagPills = tagsArr
-                        .map(t => `<span class="bli-tag-pill">${escapeHTML(t)}</span>`)
-                        .join('');
-
-                    row.innerHTML = `
-                        <span class="bli-title">${escapeHTML(post.title)}</span>
-                        <span class="bli-meta">
-                            <span class="bli-date">
-                                <time datetime="${escapeHTML(post.date)}">${escapeHTML(post.dateLabel)}</time>
-                            </span>
-                            <span class="bli-tags">${tagPills}</span>
-                        </span>
-                    `;
-                    container.appendChild(row);
-                });
-            } catch (err) {
-                console.error('[blog-index]', err);
-                container.innerHTML = '<p class="blog-table-empty">Could not load articles. Run <code>npm run build</code> first.</p>';
-            }
-        }
-
-        loadBlogIndex();
-    </script>
 </body>
 </html>
