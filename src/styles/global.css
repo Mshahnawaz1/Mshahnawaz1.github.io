@@ -578,6 +578,14 @@ footer small { display: block; margin-top: 16px; font-family: var(--font-mono); 
     font-size: var(--text-xs);
 }
 .prose pre code { padding: 0; background: none; }
+.prose img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+}
+.prose hr { border: 0; height: 1px; background: var(--line); margin: 28px 0; }
 
 /* ==========================================================================
    SCROLL REVEAL
