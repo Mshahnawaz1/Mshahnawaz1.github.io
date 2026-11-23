@@ -6,7 +6,6 @@ interface Props {
 }
 
 const { title, description, status, tags, live, source, image } = Astro.props.project.data;
-const href = live ?? source;
 ---
 
 <article class="card">
@@ -14,15 +13,17 @@ const href = live ?? source;
     {image ? <img src={image} alt={`${title} screenshot`} loading="lazy" /> : <span class="card-placeholder" aria-hidden="true">{title}</span>}
   </div>
   <div class="card-head">
-    <h3>{title}</h3>
+    <div class="card-title">
+      <h3>{title}</h3>
+      <div class="card-links">
+        {source && <a href={source} target="_blank" rel="noopener noreferrer">Source ↗</a>}
+        {live && <a href={live} target="_blank" rel="noopener noreferrer">Live ↗</a>}
+      </div>
+    </div>
     {status && <span class="status-pill" data-status={status}>{status}</span>}
   </div>
   <p class="card-desc">{description}</p>
   <div class="card-foot">
     <div class="tags">{tags.map((tag) => <span class="tag">{tag}</span>)}</div>
-    <div class="card-links">
-      {live && source && <a href={source} target="_blank" rel="noopener noreferrer">Source ↗</a>}
-      {href && <a href={href} target="_blank" rel="noopener noreferrer">View Project ↗</a>}
-    </div>
   </div>
 </article>

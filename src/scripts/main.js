@@ -51,3 +51,26 @@ if (track) {
         return copy;
     }));
 }
+
+/* Open source contribution tabs */
+$$('[data-oss]').forEach((root) => {
+    const tabs = $$('[role="tab"]', root);
+    const select = (tab) => {
+        tabs.forEach((t) => {
+            const on = t === tab;
+            t.setAttribute('aria-selected', String(on));
+            t.tabIndex = on ? 0 : -1;
+            $(`[data-panel="${t.dataset.tab}"]`, root).hidden = !on;
+        });
+    };
+    tabs.forEach((tab, i) => {
+        tab.addEventListener('click', () => select(tab));
+        tab.addEventListener('keydown', (e) => {
+            const step = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+            if (!step) return;
+            const next = tabs[(i + step + tabs.length) % tabs.length];
+            select(next);
+            next.focus();
+        });
+    });
+});

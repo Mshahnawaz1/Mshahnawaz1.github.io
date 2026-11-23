@@ -44,13 +44,13 @@ After you have decided that caching is required, decide the key features.
 ### Basic demo of caching
 
 **Initial Setup**
-``` Python
+```python
 ## docker run -d -p 6379:6379 redis
 r = redis.Redis(host='localhost', port=6379, decode_responses=True)
 
 ```
 
-``` Python
+```python
 def caching(num: int):
     out = None
     prev = time.time()
@@ -69,12 +69,12 @@ def caching(num: int):
 **For LRU** : 
 This is for direct configuring of Redis, we can also create a docker volume for Redis and specify these details of max-memory or create custom Redis configuration file.
 
-``` shell
+```shell
 docker exec -it <container> redis-cli CONFIG SET maxmemory 256mb
 docker exec -it <container> redis-cli CONFIG SET maxmemory-policy allkeys-lru
 ```
 
-``` shell
+```shell
 docker exec -it 3150c773c4e4 redis-cli CONFIG SET maxmemory 256mb
 docker exec -it 3150c773c4e4 redis-cli CONFIG SET maxmemory-policy allkeys-lru
 

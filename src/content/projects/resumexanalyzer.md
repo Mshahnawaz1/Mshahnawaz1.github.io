@@ -6,5 +6,5 @@ tags: ["FastAPI", "LangChain", "Railway", "React"]
 live: "https://resume-x-analyzer.vercel.app/"
 source: "https://github.com/Mshahnawaz1/ResumeXanalyzer"
 image: "/resumexanalyzer.png"
-order: 1
+order: 4
 ---

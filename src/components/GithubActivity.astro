@@ -1,0 +1,49 @@
+---
+interface Day { date: string; count: number; level: number }
+
+const user = 'Mshahnawaz1';
+let days: Day[] = [];
+let total = 0;
+
+try {
+  const res = await fetch(`https://github-contributions-api.jogruber.de/v4/${user}?y=last`, {
+    signal: AbortSignal.timeout(8000),
+  });
+  if (res.ok) {
+    const data = await res.json();
+    days = data.contributions ?? [];
+    total = data.total?.lastYear ?? days.reduce((n, d) => n + d.count, 0);
+  }
+} catch {
+  // Build must not fail if the API is down; the section falls back to a link.
+}
+
+const offset = days.length ? new Date(days[0].date + 'T00:00:00Z').getUTCDay() : 0;
+const weeks = Math.ceil((days.length + offset) / 7);
+const cells = days.map((d, i) => ({
+  ...d,
+  row: ((i + offset) % 7) + 1,
+  col: Math.floor((i + offset) / 7) + 1,
+}));
+---
+
+<div class="gh">
+  {days.length > 0 ? (
+    <>
+      <p class="gh-total"><strong>{total.toLocaleString('en-US')}</strong> contributions in the last year</p>
+      <div class="gh-grid" style={`grid-template-columns: repeat(${weeks}, 1fr)`} role="img" aria-label={`${total} GitHub contributions in the last year`}>
+        {cells.map((c) => (
+          <span class="gh-cell" data-level={c.level} style={`grid-row:${c.row};grid-column:${c.col}`} title={`${c.count} contribution${c.count === 1 ? '' : 's'} on ${c.date}`}></span>
+        ))}
+      </div>
+      <div class="gh-legend" aria-hidden="true">
+        <span>Less</span>
+        {[0, 1, 2, 3, 4].map((l) => <span class="gh-cell" data-level={l}></span>)}
+        <span>More</span>
+      </div>
+    </>
+  ) : (
+    <p class="gh-total">Contribution graph is unavailable right now.</p>
+  )}
+  <a class="more" href={`https://github.com/${user}`} target="_blank" rel="noopener noreferrer">View on GitHub →</a>
+</div>

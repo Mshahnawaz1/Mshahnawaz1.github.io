@@ -4,6 +4,8 @@ import Banner from '../components/Banner.astro';
 import ThemeToggle from '../components/ThemeToggle.astro';
 import BlogList from '../components/BlogList.astro';
 import ProjectCard from '../components/ProjectCard.astro';
+import GithubActivity from '../components/GithubActivity.astro';
+import OpenSource from '../components/OpenSource.astro';
 import { getPosts, getProjects } from '../lib/posts';
 
 const latest = (await getPosts()).slice(0, 3);
@@ -19,8 +21,10 @@ const projects = await getProjects();
       <a href="#home">Home</a>
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
+      <a href="#open-source">Open Source</a>
       <a href="#skills">Skills</a>
       <a href="#highlights">Highlights</a>
+      <a href="#activity">Activity</a>
       <a href="#writing">Writing</a>
   </nav>
 
@@ -67,7 +71,39 @@ const projects = await getProjects();
       <section id="experience">
           <h2 class="heading">Experience</h2>
           <article class="entry">
-              <div class="logo" aria-hidden="true">RS</div>
+              <div class="logo logo-img"><img src="/dots_in.png" alt="dots.in logo" /></div>
+              <div class="entry-body">
+                  <h3>dots.in</h3>
+                  <p class="role">Backend AI Intern · Bengaluru</p>
+                  <details open>
+                      <summary>Nov 2026 – Present <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+                      <ul>
+                          <li>Building <strong>Dots-Harness</strong>, a web-based agent with memory management and <strong>10+ tools and skills</strong> for working with PDFs, markdown, in-chat responses (using A2UI) and an agent-interactable canvas.</li>
+                          <li>Reduced LLM input-token cost by <strong>94%</strong> per request (11K to 0.6K tokens) by replacing always-on prompts and tool schemas with lazily loaded skills and search-based tool discovery.</li>
+                          <li>Implemented per-file <strong>version control</strong> (last 50 revisions, restore, agent/user attribution) for generated documents, so users can let the agent edit their files and roll back any change.</li>
+                      </ul>
+                      <div class="tags"><span class="tag">Python</span><span class="tag">AI Agents</span><span class="tag">A2UI</span><span class="tag">LLMs</span></div>
+                  </details>
+              </div>
+          </article>
+          <article class="entry">
+              <div class="logo logo-img logo-dark"><img src="/flyrank_ai.png" alt="FlyRank.ai logo" /></div>
+              <div class="entry-body">
+                  <h3>Flyrank.ai</h3>
+                  <p class="role">AI Engineering Intern</p>
+                  <details>
+                      <summary>Jul 2026 – Oct 2026 <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+                      <ul>
+                          <li>Built an AI-assisted chatbot grounded in <strong>50+ FAQ documents</strong> using a RAG-based system.</li>
+                          <li>Designed a schema-first RAG pipeline routing typed field queries to direct lookups and unstructured queries to ChromaDB (lfm-2.5-embedding), eliminating semantic-search overhead for exact-match questions.</li>
+                          <li>Improved <strong>recall@5 from 40% to 75%</strong> using hybrid retrieval (semantic + BM25) with a cross-encoder reranker, evaluated on a 70-query golden dataset.</li>
+                      </ul>
+                      <div class="tags"><span class="tag">RAG</span><span class="tag">ChromaDB</span><span class="tag">BM25</span><span class="tag">Reranking</span></div>
+                  </details>
+              </div>
+          </article>
+          <article class="entry">
+              <div class="logo logo-img"><img src="/raza_studioz.png" alt="Raza Studioz logo" /></div>
               <div class="entry-body">
                   <h3>Raza Studioz</h3>
                   <p class="role">Software Developer (Contract)</p>
@@ -81,21 +117,6 @@ const projects = await getProjects();
                   </details>
               </div>
           </article>
-          <article class="entry">
-              <div class="logo" aria-hidden="true">MB</div>
-              <div class="entry-body">
-                  <h3>MetaBrainz Foundation</h3>
-                  <p class="role">Open Source Contributor · ListenBrainz</p>
-                  <details>
-                      <summary>Feb 2025 – May 2025 <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
-                      <ul>
-                          <li>Implemented persistent volume storage via LocalStorage across the React codebase, enabling user preference retention across sessions for <strong>1M+ active users</strong> on the platform.</li>
-                          <li>Contributed 4+ pull requests reviewed and merged by core maintainers, iterating on implementation across multiple review cycles while adapting to an unfamiliar large-scale codebase.</li>
-                      </ul>
-                      <div class="tags"><span class="tag">React</span><span class="tag">LocalStorage</span></div>
-                  </details>
-              </div>
-          </article>
       </section>
 
       <section id="projects">
@@ -105,13 +126,19 @@ const projects = await getProjects();
           </div>
       </section>
 
+      <section id="open-source">
+          <h2 class="heading">Open Source Contributions</h2>
+          <OpenSource />
+      </section>
+
       <section id="skills">
           <h2 class="heading">Skills</h2>
           <div class="skills">
               <span class="skill">Python</span><span class="skill">JavaScript</span><span class="skill">SQL</span>
-              <span class="skill">FastAPI</span><span class="skill">Flask</span><span class="skill">Pydantic</span><span class="skill">REST APIs</span>
-              <span class="skill">LangChain</span><span class="skill">LangGraph</span><span class="skill">MCP</span><span class="skill">LLMs</span><span class="skill">RAG</span>
-              <span class="skill">PostgreSQL</span><span class="skill">Supabase</span><span class="skill">Docker</span><span class="skill">Git</span><span class="skill">Jupyter</span>
+              <span class="skill">LangChain</span><span class="skill">LangGraph</span><span class="skill">MCP</span><span class="skill">LLMs</span><span class="skill">RAG</span><span class="skill">Embeddings</span><span class="skill">ChromaDB</span>
+              <span class="skill">FastAPI</span><span class="skill">Flask</span><span class="skill">Pydantic</span><span class="skill">REST APIs</span><span class="skill">Async Programming</span><span class="skill">React</span><span class="skill">Supabase</span>
+              <span class="skill">PostgreSQL</span><span class="skill">Redis</span><span class="skill">Docker</span><span class="skill">CI/CD</span><span class="skill">Linux</span><span class="skill">Railway</span><span class="skill">Vercel</span><span class="skill">Hugging Face</span>
+              <span class="skill">Git</span><span class="skill">GitHub</span><span class="skill">Pytest</span><span class="skill">VS Code</span><span class="skill">Cursor</span>
           </div>
       </section>
 
@@ -122,7 +149,7 @@ const projects = await getProjects();
                   <div class="highlight"><strong>Top 1% rank</strong> among 33,131 students in NPTEL IoT certification, IIT Kharagpur.</div>
                   <div class="highlight"><strong>CS50's AI with Python</strong> certificate, Harvard University / edX.</div>
                   <div class="highlight"><strong>CS50x</strong> Introduction to Computer Science certificate, Harvard University.</div>
-                  <div class="highlight"><strong>4+ merged PRs</strong> in ListenBrainz, used by 1M+ users.</div>
+                  <div class="highlight"><strong>3 merged PRs</strong> in ListenBrainz, used by 1M+ users.</div>
               </div>
           </div>
           <article class="entry">
@@ -135,6 +162,11 @@ const projects = await getProjects();
           </article>
       </section>
 
+      <section id="activity">
+          <h2 class="heading">GitHub Activity</h2>
+          <GithubActivity />
+      </section>
+
       <section id="writing">
           <h2 class="heading">Writing</h2>
           <BlogList posts={latest} />
@@ -142,7 +174,8 @@ const projects = await getProjects();
       </section>
 
       <footer>
-          <p class="quote">“Do so much work that it would be unreasonable for you to not be successful.”</p>
+          <p class="quote quote-ar" lang="ar" dir="rtl">توكّل</p>
+          <p class="quote-en">Tawakkul</p>
           <small>&copy; 2026 Mohammad Shahnawaz</small>
       </footer>
   </main>

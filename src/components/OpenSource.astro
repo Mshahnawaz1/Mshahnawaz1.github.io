@@ -1,0 +1,40 @@
+---
+import { contributions, contributionsUrl, type ContribState } from '../data/contributions';
+
+const tabs: { id: ContribState; label: string }[] = [
+  { id: 'merged', label: 'Merged' },
+  { id: 'open', label: 'Open' },
+  { id: 'closed', label: 'Closed' },
+];
+const count = (s: ContribState) => contributions.filter((c) => c.state === s).length;
+---
+
+<div class="oss" data-oss>
+  <div class="oss-tabs" role="tablist" aria-label="Contribution status">
+    {tabs.map((t, i) => (
+      <button type="button" role="tab" id={`oss-tab-${t.id}`} aria-controls={`oss-panel-${t.id}`} aria-selected={i === 0 ? 'true' : 'false'} tabindex={i === 0 ? 0 : -1} data-tab={t.id}>
+        {t.label}<span class="oss-count">{count(t.id)}</span>
+      </button>
+    ))}
+  </div>
+
+  {tabs.map((t, i) => (
+    <ul class="oss-list" role="tabpanel" id={`oss-panel-${t.id}`} aria-labelledby={`oss-tab-${t.id}`} hidden={i !== 0} data-panel={t.id}>
+      {contributions.filter((c) => c.state === t.id).map((c) => (
+        <li>
+          <a class="oss-item" href={c.url} target="_blank" rel="noopener noreferrer">
+            <span class="oss-dot" data-state={c.state} aria-hidden="true"></span>
+            <span class="oss-text">
+              <span class="oss-title">{c.title}</span>
+              <span class="oss-repo">{c.repo} · {c.kind}</span>
+            </span>
+            <span class="oss-arrow" aria-hidden="true">↗</span>
+          </a>
+        </li>
+      ))}
+      {count(t.id) === 0 && <li class="oss-empty">Nothing here yet.</li>}
+    </ul>
+  ))}
+
+  <a class="more" href={contributionsUrl} target="_blank" rel="noopener noreferrer">View all on GitHub →</a>
+</div>

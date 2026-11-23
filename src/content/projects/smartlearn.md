@@ -5,5 +5,5 @@ status: "Live"
 tags: ["FastAPI", "ChromaDB", "Gemini", "Docker"]
 live: "https://huggingface.co/spaces/SlimeRimuru/RAG-learning"
 source: "https://github.com/Mshahnawaz1/Rag-agent-for-document"
-order: 3
+order: 5
 ---
