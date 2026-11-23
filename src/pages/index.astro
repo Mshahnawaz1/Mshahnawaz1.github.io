@@ -7,14 +7,16 @@ import ProjectCard from '../components/ProjectCard.astro';
 import GithubActivity from '../components/GithubActivity.astro';
 import OpenSource from '../components/OpenSource.astro';
 import { getPosts, getProjects } from '../lib/posts';
+import { person, website, profilePage } from '../lib/seo';
 
 const latest = (await getPosts()).slice(0, 3);
 const projects = await getProjects();
 ---
 
 <Base
-  title="Mohammad Shahnawaz — Software Engineer"
-  description="Backend software engineer building memory, infrastructure, and tools for AI agents, FastAPI services, and production web apps."
+  title="Mohammad Shahnawaz — Backend AI Engineer"
+  description="Mohammad Shahnawaz is a backend AI engineer in Bengaluru building LLM agents, RAG pipelines and FastAPI services. Projects, experience and writing."
+  jsonLd={[website, person, profilePage]}
 >
   <nav class="index" id="index" aria-label="Page index">
       <p class="index-label">Index</p>

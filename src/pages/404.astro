@@ -1,0 +1,18 @@
+---
+import Base from '../layouts/Base.astro';
+import ThemeToggle from '../components/ThemeToggle.astro';
+---
+
+<Base title="Page not found — Mohammad Shahnawaz" description="This page does not exist." noindex>
+  <main class="column notfound">
+    <div class="notfound-bar"><ThemeToggle /></div>
+    <section class="notfound-body">
+      <img class="notfound-flag" src="/not-found.png" alt="A straw-hat skull and crossbones flag" width="500" height="362" />
+      <h1 class="notfound-code">404</h1>
+      <p class="notfound-msg">Page not found. This route does not exist, or it sailed away.</p>
+      <a class="notfound-home" href="/">
+        <span aria-hidden="true">←</span> Back to home
+      </a>
+    </section>
+  </main>
+</Base>

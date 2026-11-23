@@ -1,7 +1,7 @@
 ---
 title: "Attentions in LLMs"
 date: "2026-08-15"
-tags: ["LLM, Papers, Machine Learning"]
+tags: ["LLM", "Papers", "Machine Learning"]
 excerpt: "Exposing database schemas, SQL query runners, and table metrics securely to large language models using the Model Context Protocol."
 ---
 

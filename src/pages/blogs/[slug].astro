@@ -3,6 +3,7 @@ import { render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import ThemeToggle from '../../components/ThemeToggle.astro';
 import { getPosts, formatDate } from '../../lib/posts';
+import { blogPosting, breadcrumbs } from '../../lib/seo';
 
 export async function getStaticPaths() {
   return (await getPosts()).map((post) => ({ params: { slug: post.id }, props: { post } }));
@@ -14,7 +15,15 @@ const { title, date, tags, excerpt } = post.data;
 const readTime = Math.max(1, Math.round((post.body ?? '').split(/\s+/).length / 200));
 ---
 
-<Base title={`${title} — Mohammad Shahnawaz`} description={excerpt ?? title} type="article">
+<Base
+  title={`${title} — Mohammad Shahnawaz`}
+  description={excerpt ?? title}
+  type="article"
+  jsonLd={[
+    blogPosting({ id: post.id, title, description: excerpt ?? title, date, tags }),
+    breadcrumbs([{ name: 'Home', path: '/' }, { name: 'Writing', path: '/blogs/' }, { name: title, path: `/blogs/${post.id}/` }]),
+  ]}
+>
   <main class="column page">
     <div class="page-bar">
       <a class="back" href="/blogs/">← All articles</a>

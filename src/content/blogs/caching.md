@@ -5,7 +5,7 @@ tags: ["System Design"]
 excerpt: "Reducing latency on process heavy functions with Redis cache"
 ---
 
-# Caching
+## Caching
 Caching is the process of storing the data to from persistent storage (DB, or function call) to a temporary storage in CPU, allowing user to get the response faster.
 So caching allows very fast response from an API call.
 

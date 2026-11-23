@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import ThemeToggle from '../../components/ThemeToggle.astro';
 import BlogList from '../../components/BlogList.astro';
 import { getPosts } from '../../lib/posts';
+import { breadcrumbs, SITE } from '../../lib/seo';
 
 const posts = await getPosts();
 ---
@@ -10,6 +11,10 @@ const posts = await getPosts();
 <Base
   title="Writing — Mohammad Shahnawaz"
   description="Technical blog posts on building asynchronous systems, Model Context Protocol (MCP) servers, vector databases, and agentic AI architectures."
+  jsonLd={[
+    breadcrumbs([{ name: 'Home', path: '/' }, { name: 'Writing', path: '/blogs/' }]),
+    { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Writing', url: `${SITE}/blogs/`, isPartOf: { '@id': `${SITE}/#website` } },
+  ]}
 >
   <main class="column page">
     <div class="page-bar">
